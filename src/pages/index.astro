@@ -1,25 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
 ---
 
 <Layout title="Pink Sofa Hour">
 	<main>
-		<section>
+		<Card>
 			<h1>Welcome to the Pink Sofa Hour</h1>
-		</section>
+		</Card>
 
 		<div>
 			<iframe width="560" height="315" src="https://www.youtube.com/embed/O50RrxSSbqw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 		</div>
 		
-		<section>
+		<Card>
 			<p>A live streamed interview show for local musicians based in Boulder, Colorado.</p>
 			<p>Hosted by Pedro</p>
-		</section>
+		</Card>
 
-		<section>
+		<Card>
 			<h2>Latest Episodes</h2>
-		</section>
+		</Card>
 		
 		<div>
 			<iframe width="560" height="315" src="https://www.youtube.com/embed/O50RrxSSbqw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -33,9 +34,9 @@ import Layout from '../layouts/Layout.astro';
 			<iframe width="560" height="315" src="https://www.youtube.com/embed/O50RrxSSbqw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 		</div>
 		
-		<section>
+		<Card>
 			<a href="/about">More ...</a>
-		</section>
+		</Card>
 	</main>
 </Layout>
 
@@ -47,31 +48,9 @@ import Layout from '../layouts/Layout.astro';
 		
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 		gap: 24px;
 		padding: 24px;
-
 		overflow-y: scroll;
-	}
-
-	main > * {
-		margin: 0 auto;
-	}
-
-	/* card */
-	section {
-		padding: 24px;
-		border-radius: 12px;
-		background-color: rgba(0, 0, 0, 0.5);
-		max-width: calc(560px - (2 * 24px)); /* based on video width - the 2 * padding */
-		color: white;
-	}
-
-	section a {
-			color: white
-	}
-
-	/* TODO move to global overwrites */
-	h1, h2, p {
-		margin: 0;
 	}
 </style>
