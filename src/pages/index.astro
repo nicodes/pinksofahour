@@ -1,70 +1,100 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
 ---
 
 <Layout title="Pink Sofa Hour">
-	<main>
-		<div class="scroll-snap"/>
+  <main>
+    <div class="scroll-snap"></div>
 
-		<Card>
-			<h1>Welcome to the Pink Sofa Hour</h1>
-		</Card>
+    <Card>
+      <h1>Welcome to the Pink Sofa Hour</h1>
+    </Card>
 
-		<div>
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/O50RrxSSbqw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-		</div>
-		
-		<div>
-			<Card>
-				<p>A live streamed interview show for local musicians based in Boulder, Colorado.</p>
-				<p>Hosted by Pedro</p>
-			</Card>
-			<div class="scroll-snap"/>
-		</div>
-		
+    <div>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/O50RrxSSbqw"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
 
-		<Card>
-			<h2>Latest Episodes</h2>
-		</Card>
-		
-		<div>
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/O50RrxSSbqw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-		</div>
+    <div>
+      <Card>
+        <p>
+          A live streamed interview show for local musicians based in Boulder,
+          Colorado.
+        </p>
+        <p>Hosted by Pedro</p>
+      </Card>
+      <div class="scroll-snap"></div>
+    </div>
 
-		<div>
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/O50RrxSSbqw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-		</div>
+    <Card>
+      <h2>Latest Episodes</h2>
+    </Card>
 
-		<div>
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/O50RrxSSbqw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-		</div>
-		
-		<Card>
-			<a href="/about">More ...</a>
-		</Card>
+    <div>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/O50RrxSSbqw"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
 
-		<div class="scroll-snap" />
-	</main>
+    <div>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/O50RrxSSbqw"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+
+    <div>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/O50RrxSSbqw"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+
+    <Card>
+      <a href="/about">More ...</a>
+    </Card>
+
+    <div class="scroll-snap"></div>
+  </main>
 </Layout>
 
 <style>
-	main {
-		height: 100%;
-		background-image: url("https://drive.google.com/uc?id=1GRZpi4Me3GN0BmOZo15E3u6IePckNBsG");
-		background-size: cover;
-		
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 24px;
-		padding: 0 24px; /* no top padding for scroll snap with included spacing */
+  main {
+    height: 100%;
+    background-image: url("https://drive.google.com/uc?id=1GRZpi4Me3GN0BmOZo15E3u6IePckNBsG");
+    background-size: cover;
 
-		overflow-y: scroll;
-		scroll-snap-type: y;
-	}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 0 24px; /* no top padding for scroll snap with included spacing */
 
-	.scroll-snap {
-		scroll-snap-align: start;
-	}
+    overflow-y: scroll;
+    scroll-snap-type: y;
+  }
+
+  .scroll-snap {
+    scroll-snap-align: start;
+  }
 </style>
