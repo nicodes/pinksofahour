@@ -1,7 +1,8 @@
-name: Check formatting on pull request
+name: Pull request checks
 on: pull_request
 jobs:
-  build:
+  code_integrity_check:
+    name: Code integrity check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
