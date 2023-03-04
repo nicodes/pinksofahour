@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-import * as youtubeService from "../services/youtubeService";
+import youtubeService from "../services/youtubeService";
 
 const videos = await youtubeService.getRecentFromChannel(3);
 ---

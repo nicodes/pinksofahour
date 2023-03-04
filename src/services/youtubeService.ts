@@ -1,5 +1,5 @@
 /** Gets most recent N videos from Pink Sofa Hour youtube channel */
-export async function getRecentFromChannel(maxResults: number = 5) {
+async function getRecentFromChannel(maxResults: number = 5) {
   const requestUrl =
     "https://www.googleapis.com/youtube/v3/search?" +
     `key=${import.meta.env.GOOGLE_API_KEY}` +
@@ -21,3 +21,7 @@ export async function getRecentFromChannel(maxResults: number = 5) {
 
   return videos;
 }
+
+export default {
+  getRecentFromChannel,
+};
