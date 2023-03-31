@@ -10,43 +10,48 @@ const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
 
 <Layout title="Pink Sofa Hour">
   <main>
-    <div class="scroll-snap"></div>
+    <div class="intro">
 
-    <Card>
-      <h1>Welcome to the Pink Sofa Hour</h1>
-    </Card>
-
-    <div>
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/O50RrxSSbqw"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-    </div>
-
-    <div>
       <Card>
-        <p>
-          A live streamed interview show for local musicians based in Boulder,
-          Colorado.
-        </p>
-        <p>Hosted by Pedro</p>
+        <h1>Welcome to the <br/> <span style="color: #FCB8D1;">Pink Sofa Hour</span></h1>
       </Card>
-      <div class="scroll-snap"></div>
+
+      <div class="intro-video">
+        <iframe
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/O50RrxSSbqw"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+
+      <Card>
+        <h3 class="intro-text">
+          A live streamed interview show for local musicians based in Boulder,
+          Colorado.<br><br>Hosted by Pedro
+        </h3>
+      </Card>
+
     </div>
 
     <Card>
-      <h2>Latest Episodes</h2>
+      <div class="grid-header">
+        <form action="/">
+          <select name="" id="">
+            <option value="full-episodes">Full Episodes</option>
+            <option value="performances">Performances</option>
+            <option value="clips">Clips</option>
+          </select>
+        </form>
+        <h3>View all</h3>
+      </div>
     </Card>
+  
+    <div class="episode-grid">
 
-    <Card>
-      <a href="/about">More ...</a>
-    </Card>
-
-    {
+      {
       // TODO fix any type
       cards.map((card: any) => (
         <ArtistCard
@@ -57,7 +62,63 @@ const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
           videoUrl={card.videoUrl}
         />
       ))
-    }
+      }
+
+      <Card>
+        <div class="episode-card">
+          <div class="flyer-img">
+            <img src="https://sc-api.psu.edu/s3/files/styles/4_3_2000w/public/cria.jpg?h=8b31135d&itok=vO_aTuaB"/>
+          </div>
+          <div class="flyer-text">
+            <h1>Big Dopes</h1>
+            <h3>Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description. Description.</h3>
+            <img src="../../play-icon.png"/>
+          </div>
+        </div>
+      </Card>
+
+      <Card>
+      <div class="episode-card">
+        <div class="flyer-img">
+          <img src="https://regmedia.co.uk/2023/02/25/llama.jpg"/>
+        </div>
+        <div class="flyer-text">
+          <h1>Celler Smeller</h1>
+          <h3>Description. Description. Description. Description. Description. Description. Description. Description. Description.</h3>
+          <img src="../../play-icon.png"/>
+        </div>
+      </div>
+      </Card>
+
+      <Card>
+        <div class="episode-card">
+          <div class="flyer-img">
+            <img src="https://images.theconversation.com/files/180922/original/file-20170803-7132-14346fx.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=900.0&fit=crop"/>
+          </div>
+          <div class="flyer-text">
+            <h1>Everybody but Jay</h1>
+            <h3>Description. Description. Description. Description. Description. Description. Description. Description.</h3>
+            <img src="../../play-icon.png"/>
+          </div>
+        </div>
+      </Card>
+
+      <Card>
+        <div class="episode-card">
+          <div class="flyer-img">
+            <img src="https://www.reuters.com/resizer/mf9ewSwIydt7MjpZ2DERbaEm23c=/1200x1500/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/ADL7XPLUE5OOPNPBIR7AQKSEXU.jpg"/>
+          </div>
+          <div class="flyer-text">
+            <h1>Finn O'Sullivan</h1>
+            <h3>Description. Description. Description. Description. Description.</h3>
+            <img src="../../play-icon.png"/>
+          </div>
+        </div>
+      </Card>
+
+    </div>
+
+    <a href="/about">See more ...</a>
 
     <div class="scroll-snap"></div>
   </main>
@@ -66,20 +127,87 @@ const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
 <style>
   main {
     height: 100%;
-    background-image: url("https://drive.google.com/uc?id=1GRZpi4Me3GN0BmOZo15E3u6IePckNBsG");
-    background-size: cover;
-
+    
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 12px 24px;
     gap: 24px;
-    padding: 0 24px; /* no top padding for scroll snap with included spacing */
+
+    background-image: url("https://drive.google.com/uc?id=1GRZpi4Me3GN0BmOZo15E3u6IePckNBsG");
+    background-size: cover;
 
     overflow-y: scroll;
-    scroll-snap-type: y;
+
+    /* border: 5px solid navy; */
   }
 
-  .scroll-snap {
-    scroll-snap-align: start;
+  .intro {
+    width: 100%;
+    display: grid;
+    row-gap: 12px;
+    /* border: red 5px solid; */
   }
+
+  .intro h1 {
+    text-align: center;
+    letter-spacing: .2rem;
+  }
+
+  .grid-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* border: red 5px solid; */
+  }
+
+  .grid-header select {
+    font-family: NeutraText-bold;
+    font-size: 20px;
+    border: none;
+    border-bottom: 3px solid #FCB8D1;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+  }
+
+  .episode-grid {
+    --auto-grid-min-size: 250px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+    grid-gap: 1rem;
+    column-gap: 1rem;
+    /* border: red 5px solid; */
+    width: 100%;
+  }
+  
+  .episode-card {
+    height: 100%;
+    /* border: olivedrab 5px solid; */
+    /* width: 100%; */
+  }
+
+  /* .episode-card div {
+    height: 50%;
+  } */
+  
+  .flyer-img img {
+    width: 100%;
+    height: 300px;
+    border: #FFFBCC 10px solid;
+    object-fit: cover;
+  }
+  
+  .flyer-text {
+    height: 200px;
+    display: grid;
+    margin-top: 12px;
+  }
+  
+  .flyer-text img {
+    height: 40px;
+    margin-top: auto;
+    margin-bottom: 0;
+  }
+
 </style>
