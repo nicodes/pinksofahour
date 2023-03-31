@@ -1,9 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-import youtubeService from "../services/youtubeService";
-
-const videos = await youtubeService.getRecentFromChannel(3);
 ---
 
 <Layout title="Pink Sofa Hour">
@@ -40,21 +37,38 @@ const videos = await youtubeService.getRecentFromChannel(3);
       <h2>Latest Episodes</h2>
     </Card>
 
-    {
-      videos.map((v) => (
-        <div>
-          <iframe
-            width="560"
-            height="315"
-            src={`https://www.youtube.com/embed/${v.id}`}
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          />
-        </div>
-      ))
-    }
+    <div>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/O50RrxSSbqw"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+
+    <div>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/O50RrxSSbqw"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+
+    <div>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/O50RrxSSbqw"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
 
     <Card>
       <a href="/about">More ...</a>
