@@ -1,0 +1,37 @@
+---
+import Tabs from "../../components/Tabs.astro";
+import Layout from "../../layouts/Layout.astro";
+import {
+  getRecentFromChannel,
+  getVideosFromPlaylist,
+} from "../../services/dataService";
+
+const playlistVideos = await getVideosFromPlaylist("performances", 5);
+console.log(playlistVideos);
+---
+
+<Layout title="Pink Sofa Hour | Performances">
+  <main>
+    <h1>Performances</h1>
+
+    <Tabs />
+
+    <!-- {
+      playlistVideos.map((v: any) => (
+        <div>
+          <iframe
+            width="560"
+            height="315"
+            src={`https://www.youtube.com/embed/${v.id}`}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          />
+        </div>
+      ))
+    } -->
+  </main>
+</Layout>
+
+<style></style>
