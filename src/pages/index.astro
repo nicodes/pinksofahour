@@ -1,6 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import { readJsonFileFromDrive } from "../services/dataService";
+import ArtistCard from "../components/ArtistCard.astro";
+
+const cardsJsonGoogleDriveId = "1SayYl7IcBgBUjjWd5IF5PY56lohwx1gi";
+const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
 ---
 
 <Layout title="Pink Sofa Hour">
@@ -73,6 +78,19 @@ import Card from "../components/Card.astro";
     <Card>
       <a href="/about">More ...</a>
     </Card>
+
+    {
+      // TODO fix any type
+      cards.map((card: any) => (
+        <ArtistCard
+          title={card.title}
+          description={card.description}
+          date={card.date}
+          photoId={card.photoId}
+          videoUrl={card.videoUrl}
+        />
+      ))
+    }
 
     <div class="scroll-snap"></div>
   </main>
