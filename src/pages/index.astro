@@ -79,6 +79,11 @@ console.log(cards);
       <a href="/about">More ...</a>
     </Card>
 
+    {
+      // TODO fix any type
+      cards.map((card: any) => <Card>{card.name}</Card>)
+    }
+
     <div class="scroll-snap"></div>
   </main>
 </Layout>
