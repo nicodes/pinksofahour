@@ -1,26 +1,24 @@
 ---
+import Card from "./Card.astro";
 import CircleButton from "./CircleButton.astro";
 const { title, description, photoId, videoUrl } = Astro.props;
 ---
 
-<section>
+<Card className="card">
   <img src={`https://drive.google.com/uc?id=${photoId}`} />
   <p>{title}</p>
   <p>{description}</p>
   <a target="_blank" href={videoUrl}>
     <CircleButton />
   </a>
-</section>
+</Card>
 
 <style>
-  /* card */
-  section {
+  .card {
     padding: 24px;
     border-radius: 12px;
     background-color: rgba(0, 0, 0, 0.5);
-    max-width: calc(
-      560px - (2 * 24px)
-    ); /* based on video width - (2 * padding) */
+    max-width: 600px;
 
     display: flex;
     flex-direction: column;
