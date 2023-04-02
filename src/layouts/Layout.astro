@@ -47,19 +47,21 @@ const { title } = Astro.props;
     font-family: NeutraText-Bold;
   }
   
-  h2 {
+  h2, 
+  h3,
+  h4,
+  p {
     font-family: NeutraText-Book;
   }
-
-  h3 {
-    font-family: NeutraText-Book;
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    color: white;
   }
-
-  h4 {
-    font-family: NeutraText-Book;
-  }
-
-
+  
   html,
   body {
     height: 100%;
@@ -70,12 +72,5 @@ const { title } = Astro.props;
     flex-direction: column;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  p {
-    color: white;
-  }
 
 </style>

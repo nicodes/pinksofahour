@@ -6,8 +6,8 @@ const { title, description, photoId, videoUrl } = Astro.props;
 
 <Card className="card">
   <img src={`https://drive.google.com/uc?id=${photoId}`} />
-  <h1>{title}</h1>
-  <h3>{description}</h3>
+  <h2>{title}</h2>
+  <p>{description}</p>
   <a target="_blank" href={videoUrl}>
     <CircleButton />
     <h4>Watch on Youtube</h4>
@@ -20,7 +20,6 @@ const { title, description, photoId, videoUrl } = Astro.props;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    
   }
 
   img {
