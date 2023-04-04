@@ -1,8 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import Card from "../components/card/Card.astro";
 import { readJsonFileFromDrive } from "../services/dataService";
-import ArtistCard from "../components/ArtistCard.astro";
+import ArtistCard from "../components/artistCard/ArtistCard.astro";
 
 const cardsJsonGoogleDriveId = "1SayYl7IcBgBUjjWd5IF5PY56lohwx1gi";
 const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);

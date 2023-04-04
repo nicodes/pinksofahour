@@ -1,5 +1,5 @@
 ---
-import Header from "../components/Header.astro";
+import Header from "./Header.astro";
 
 interface Props {
   title: string;
@@ -23,6 +23,7 @@ const { title } = Astro.props;
   </body>
 </html>
 
+<!-- TODO this should be moved into .module.scss file -->
 <style is:global>
    {
     /* reset all browswer specific spacing */
