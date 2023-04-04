@@ -8,8 +8,13 @@ const { className } = Astro.props;
 
 <style>
   section {
+    width: 100%;
     padding: 24px;
-    border-radius: 12px;
+    border-radius: 2px;
     background-color: rgba(0, 0, 0, 0.5);
   }
+  /* max-width: calc(
+      560px - (2 * 24px)
+    );  */
+  /* based on video width - (2 * padding) */
 </style>
