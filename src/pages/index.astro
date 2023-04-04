@@ -11,9 +11,9 @@ const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
 <Layout title="Pink Sofa Hour">
   <main>
     <div class="intro">
-
       <Card>
-        <p>Welcome to the </p><h1 style="color: #FCB8D1;">Pink Sofa Hour</h1> <!-- This changes the alignment of the title, but gives it an interesting offset. I'll leave it for now. -->
+        <p>Welcome to the</p><h1 style="color: #FCB8D1;">Pink Sofa Hour</h1>
+        <!-- This changes the alignment of the title, but gives it an interesting offset. I'll leave it for now. -->
       </Card>
 
       <div class="intro-video">
@@ -30,10 +30,9 @@ const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
       <Card>
         <h3 class="intro-text">
           A live streamed interview show for local musicians based in Boulder,
-          Colorado.<br><br>Hosted by Pedro
+          Colorado.<br /><br />Hosted by Pedro
         </h3>
       </Card>
-
     </div>
 
     <Card>
@@ -48,31 +47,28 @@ const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
         <h4>View all</h4>
       </div>
     </Card>
-  
+
     <div class="episode-grid">
-
       {
-      // TODO fix any type
-      cards.map((card: any) => (
-        <ArtistCard
-          title={card.title}
-          description={card.description}
-          date={card.date}
-          photoId={card.photoId}
-          videoUrl={card.videoUrl}
-        />
-      ))
+        // TODO fix any type
+        cards.map((card: any) => (
+          <ArtistCard
+            title={card.title}
+            description={card.description}
+            date={card.date}
+            photoId={card.photoId}
+            videoUrl={card.videoUrl}
+          />
+        ))
       }
-
     </div>
-
   </main>
 </Layout>
 
 <style>
   main {
     height: 100%;
-    
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,7 +98,7 @@ const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
   }
 
   .intro-video iframe {
-   position: absolute;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -111,7 +107,7 @@ const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
 
   .intro h1 {
     text-align: center;
-    letter-spacing: .2rem;
+    letter-spacing: 0.2rem;
   }
 
   .grid-header {
@@ -126,23 +122,25 @@ const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
     font-family: NeutraText-bold;
     font-size: 20px;
     border: none;
-    border-bottom: 3px solid #FCB8D1;
+    border-bottom: 3px solid #fcb8d1;
     background-color: rgba(0, 0, 0, 0.2);
     color: white;
   }
 
   .grid-header h4 {
-    color: #FCB8D1;
+    color: #fcb8d1;
   }
 
   .episode-grid {
     --auto-grid-min-size: 250px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(var(--auto-grid-min-size), 1fr)
+    );
     grid-gap: 1rem;
     column-gap: 1rem;
     /* border: red 5px solid; */
     width: 100%;
   }
-
 </style>
