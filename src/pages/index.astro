@@ -3,20 +3,21 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/card/Card.astro";
 import { readJsonFileFromDrive } from "../services/dataService";
 import ArtistCard from "../components/artistCard/ArtistCard.astro";
+import styles from "./index.module.scss";
 
 const cardsJsonGoogleDriveId = "1SayYl7IcBgBUjjWd5IF5PY56lohwx1gi";
 const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
 ---
 
 <Layout title="Pink Sofa Hour">
-  <main>
-    <div class="intro">
+  <main class={styles.indexView}>
+    <div class={styles.intro}>
       <Card>
         <p>Welcome to the</p><h1 style="color: #FCB8D1;">Pink Sofa Hour</h1>
         <!-- This changes the alignment of the title, but gives it an interesting offset. I'll leave it for now. -->
       </Card>
 
-      <div class="intro-video">
+      <div class={styles.introVideo}>
         <iframe
           width="560"
           height="315"
@@ -28,7 +29,7 @@ const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
       </div>
 
       <Card>
-        <h3 class="intro-text">
+        <h3 class={styles.introText}>
           A live streamed interview show for local musicians based in Boulder,
           Colorado.<br /><br />Hosted by Pedro
         </h3>
@@ -36,7 +37,7 @@ const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
     </div>
 
     <Card>
-      <div class="grid-header">
+      <div class={styles.gridHeader}>
         <form action="/">
           <select name="" id="">
             <option value="full-episodes">Full Episodes</option>
@@ -48,7 +49,7 @@ const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
       </div>
     </Card>
 
-    <div class="episode-grid">
+    <div class={styles.episodeGrid}>
       {
         // TODO fix any type
         cards.map((card: any) => (
@@ -64,83 +65,3 @@ const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
     </div>
   </main>
 </Layout>
-
-<style>
-  main {
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 12px 24px;
-    gap: 24px;
-
-    background-image: url("https://drive.google.com/uc?id=1GRZpi4Me3GN0BmOZo15E3u6IePckNBsG");
-    background-size: cover;
-
-    overflow-y: scroll;
-
-    /* border: 5px solid navy; */
-  }
-
-  .intro {
-    width: 100%;
-    display: grid;
-    row-gap: 12px;
-    /* border: red 5px solid; */
-  }
-
-  .intro-video {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-  }
-
-  .intro-video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .intro h1 {
-    text-align: center;
-    letter-spacing: 0.2rem;
-  }
-
-  .grid-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    /* border: red 5px solid; */
-  }
-
-  .grid-header select {
-    font-family: NeutraText-bold;
-    font-size: 20px;
-    border: none;
-    border-bottom: 3px solid #fcb8d1;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: white;
-  }
-
-  .grid-header h4 {
-    color: #fcb8d1;
-  }
-
-  .episode-grid {
-    --auto-grid-min-size: 250px;
-    display: grid;
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(var(--auto-grid-min-size), 1fr)
-    );
-    grid-gap: 1rem;
-    column-gap: 1rem;
-    /* border: red 5px solid; */
-    width: 100%;
-  }
-</style>
