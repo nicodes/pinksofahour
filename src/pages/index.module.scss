@@ -1,3 +1,5 @@
+@use "../styles/variables.scss" as vars;
+
 .indexView {
   height: 100%;
 
@@ -15,7 +17,7 @@
 
 .intro {
   width: 100%;
-  max-width: 800px;
+  max-width: vars.$content-max-width;
   display: grid;
   row-gap: 12px;
 
@@ -70,7 +72,8 @@
 }
 
 .episodeGrid {
-  --auto-grid-min-size: 250px;
+  max-width: vars.$content-max-width;
+  --auto-grid-min-size: vars.$auto-grid-min-size;
   display: grid;
   grid-template-columns: repeat(
     auto-fill,
