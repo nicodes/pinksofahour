@@ -1,6 +1,6 @@
 ---
 import Card from "../card/Card.astro";
-import CircleButton from "../circleButton/CircleButton.astro";
+import YoutubeButton from "../youtubeButton/YoutubeButton.astro";
 import styles from "./artistCard.module.scss";
 
 const { title, description, photoId, videoUrl } = Astro.props;
@@ -11,7 +11,7 @@ const { title, description, photoId, videoUrl } = Astro.props;
   <h2>{title}</h2>
   <p>{description}</p>
   <a target="_blank" href={videoUrl}>
-    <CircleButton />
+    <YoutubeButton />
     <p>Watch on Youtube</p>
   </a>
 </Card>

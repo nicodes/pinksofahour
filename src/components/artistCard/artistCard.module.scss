@@ -15,14 +15,15 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-  }
+    margin-top: auto;
 
-  a h4 {
-    margin-left: 12px;
-  }
+    p {
+      margin-left: 12px;
 
-  a:hover {
-    text-decoration: underline;
-    text-decoration-color: red;
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: red;
+      }
+    }
   }
 }
