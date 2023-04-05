@@ -1,3 +1,5 @@
+@use "../styles/variables.scss" as vars;
+
 .indexView {
   height: 100%;
 
@@ -15,7 +17,7 @@
 
 .intro {
   width: 100%;
-  max-width: 800px;
+  max-width: vars.$content-max-width;
   display: grid;
   row-gap: 12px;
 
@@ -70,11 +72,11 @@
 }
 
 .episodeGrid {
-  --auto-grid-min-size: 250px;
+  max-width: vars.$content-max-width;
   display: grid;
   grid-template-columns: repeat(
     auto-fill,
-    minmax(var(--auto-grid-min-size), 1fr)
+    minmax(vars.$artist-card-min-size, 1fr)
   );
   grid-gap: 1rem;
   column-gap: 1rem;
