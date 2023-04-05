@@ -13,8 +13,7 @@ const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
   <main class={styles.indexView}>
     <div class={styles.intro}>
       <Card>
-        <p>Welcome to the</p><h1 style="color: #FCB8D1;">Pink Sofa Hour</h1>
-        <!-- This changes the alignment of the title, but gives it an interesting offset. I'll leave it for now. -->
+        <h1 style="letter-spacing: 0.5rem;">Pink Sofa Hour</h1> <!-- Couldn't get this css property to work in the modules file -->
       </Card>
 
       <div class={styles.introVideo}>
@@ -36,7 +35,7 @@ const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
       </Card>
     </div>
 
-    <Card>
+    <!-- <Card>
       <div class={styles.gridHeader}>
         <form action="/">
           <select name="" id="">
@@ -47,7 +46,7 @@ const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
         </form>
         <h4>View all</h4>
       </div>
-    </Card>
+    </Card> --> 
 
     <div class={styles.episodeGrid}>
       {
