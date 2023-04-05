@@ -7,19 +7,25 @@
   padding: 12px 24px;
   gap: 24px;
 
-  background-image: url("https://drive.google.com/uc?id=1GRZpi4Me3GN0BmOZo15E3u6IePckNBsG");
+  background-image: url("https://drive.google.com/uc?id=1JhUOTAFvEL-KkfDTiT1djrQrqikXNNES");
   background-size: cover;
 
   overflow-y: scroll;
-
-  /* border: 5px solid navy; */
 }
 
 .intro {
   width: 100%;
+  max-width: 800px;
   display: grid;
   row-gap: 12px;
-  /* border: red 5px solid; */
+
+  h1 {
+    font-size: 40px;
+    color: #d023a4;
+    text-shadow: 2px 2px 2px #fffbcc;
+    // text-shadow: 2px 2px 4px #fffbcc, 4px 4px 2px #022366; /* experimenting with double shadows for readibility */
+    position: relative;
+  }
 }
 
 .introVideo {
