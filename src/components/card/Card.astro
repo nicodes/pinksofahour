@@ -1,0 +1,9 @@
+---
+import styles from "./card.module.scss";
+
+const { className } = Astro.props;
+---
+
+<section class={`${styles.card} ${className}`}>
+  <slot />
+</section>

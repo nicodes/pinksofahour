@@ -1,0 +1,17 @@
+---
+import Card from "../card/Card.astro";
+import CircleButton from "../circleButton/CircleButton.astro";
+import styles from "./artistCard.module.scss";
+
+const { title, description, photoId, videoUrl } = Astro.props;
+---
+
+<Card className={styles.artistCard}>
+  <img src={`https://drive.google.com/uc?id=${photoId}`} />
+  <h2>{title}</h2>
+  <p>{description}</p>
+  <a target="_blank" href={videoUrl}>
+    <CircleButton />
+    <p>Watch on Youtube</p>
+  </a>
+</Card>
