@@ -6,7 +6,7 @@ import ArtistCard from "../components/artistCard/ArtistCard.astro";
 import styles from "./index.module.scss";
 
 const cardsJsonGoogleDriveId = "1SayYl7IcBgBUjjWd5IF5PY56lohwx1gi";
-const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
+const { bio, cards } = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
 ---
 
 <Layout title="Pink Sofa Hour">
@@ -29,10 +29,15 @@ const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
       </div>
 
       <Card>
-        <h3 class={styles.introText}>
-          A live streamed interview show for local musicians based in Boulder,
-          Colorado.<br /><br />Hosted by Pedro
-        </h3>
+        <p>
+          {
+            bio?.map((e: any) => {
+              if (typeof e === "string") return e;
+              else if (typeof e.text === "string" && typeof e.href === "string")
+                return <a href={e.href}>{e.text}</a>;
+            })
+          }
+        </p>
       </Card>
     </div>
 
@@ -52,7 +57,7 @@ const cards = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
     <div class={styles.episodeGrid}>
       {
         // TODO fix any type
-        cards.map((card: any) => (
+        cards?.map((card: any) => (
           <ArtistCard
             title={card.title}
             description={card.description}
