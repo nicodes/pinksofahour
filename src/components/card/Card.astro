@@ -1,7 +1,11 @@
 ---
 import styles from "./card.module.scss";
 
-const { className } = Astro.props;
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
 ---
 
 <section class={`${styles.card} ${className}`}>
