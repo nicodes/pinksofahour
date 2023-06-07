@@ -11,6 +11,8 @@ jobs:
       #     node-version: "16.x"
       #     registry-url: "https://registry.npmjs.org"
       - uses: pnpm/action-setup@v2
+        with:
+          version: 7 # why is this needed?
       - run: pnpm install
       - run: pnpm run format:check
       - run: pnpm run build
