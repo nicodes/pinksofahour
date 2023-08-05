@@ -51,12 +51,21 @@
     position: absolute;
     right: 30px;
     font-size: 22px;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media only screen and (min-width: 600px) {
+    .links {
+      flex-direction: row;
+      gap: 18px;
+    }
   }
 
   .link {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-    margin-right: 18px;
   }
 
   .menu {
