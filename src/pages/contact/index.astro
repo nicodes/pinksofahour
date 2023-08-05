@@ -54,12 +54,12 @@ if (Astro.request.method === "POST") {
 <Layout title="Pink Sofa Hour | Performances">
   <main class={styles.container}>
     <Card>
-      <h2>Contact Us</h2>
+      <h2>Interview Inquiry</h2>
       <form method="POST">
         <label for="name-input">Name:</label>
         <input type="text" id="name-input" name="name" />
 
-        <label for="previous-interviews-input">Previous Interviews:</label>
+        <label for="previous-interviews-input">Any Previous Interviews:</label>
         <textarea id="previous-interviews-input" name="previous-interviews"
         ></textarea>
 
@@ -72,7 +72,7 @@ if (Astro.request.method === "POST") {
         ></textarea>
 
         <label for="favorite-thing-input"
-          >Favorite thing about your local music scene?</label
+          >Favorite thing about the local music scene?</label
         >
         <textarea id="favorite-thing-input" name="favorite-thing"></textarea>
 
