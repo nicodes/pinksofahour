@@ -1,15 +1,61 @@
 ---
+import * as SibApiV3Sdk from "@sendinblue/client";
 import Card from "../components/card/Card.astro";
 import Layout from "../layouts/Layout.astro";
 import styles from "./contact.module.scss";
+
+const BREVO_API_KEY = import.meta.env.BREVO_API_KEY;
+
+const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+apiInstance.setApiKey(
+  SibApiV3Sdk.TransactionalEmailsApiApiKeys.apiKey,
+  BREVO_API_KEY
+);
+
+const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
+
+if (Astro.request.method === "POST") {
+  try {
+    const formData = await Astro.request.formData();
+    const name = formData.get("name");
+    const previousInterviews = formData.get("previous-interviews");
+    const additionalLinks = formData.get("additional-links");
+    const howDidYourHear = formData.get("how-did-you-hear");
+    const favoriteThing = formData.get("favorite-thing");
+
+    sendSmtpEmail.sender = {
+      name: "Pink Sofa Hour",
+      email: "pinksofahour@gmail.com",
+    };
+    sendSmtpEmail.to = [
+      { email: "nicozessoules@gmail.com", name: "Pink Sofa Hour" },
+    ];
+    sendSmtpEmail.subject = "PSH Contact: " + name;
+    sendSmtpEmail.htmlContent = `<html><body>
+      <p>New PSH Contact</p>
+      <ul>
+      <li><strong>Name:</strong> ${name}</li>
+      <li><strong>Previous Interviews:</strong> ${previousInterviews}</li>
+      <li><strong>Additional Links:</strong> ${additionalLinks}</li>
+      <li><strong>How did you hear about PSH:</strong> ${howDidYourHear}</li>
+      <li><strong>Favorite thing about your local music scene:</strong> ${favoriteThing}</li>
+      </ul>
+      </body></html>`;
+
+    await apiInstance.sendTransacEmail(sendSmtpEmail);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
 ---
 
 <Layout title="Pink Sofa Hour | Performances">
   <main class={styles.container}>
     <Card>
       <h2>Contact Us</h2>
-
-      <form action="http://localhost:3000/api/contactEmail" method="post">
+      <form method="POST">
         <label for="name-input">Name:</label>
         <input type="text" id="name-input" name="name" />
 
@@ -35,31 +81,3 @@ import styles from "./contact.module.scss";
     </Card>
   </main>
 </Layout>
-
-<script>
-  document.querySelector("#send-email")?.addEventListener("click", async () => {
-    try {
-      const response = await fetch("http://localhost:3000/api/contactEmail", {
-        method: "POST",
-        body: JSON.stringify({
-          to: "recipient@example.com",
-          subject: "Hello",
-          text: "Hello world!",
-        }),
-        headers: { "Content-Type": "application/json" },
-      });
-
-      if (!response.ok) {
-        throw new Error("Error sending email");
-      }
-
-      const result = await response.json();
-      console.log(result);
-
-      alert(result.message);
-    } catch (error) {
-      console.error(error);
-      alert("Failed to send email");
-    }
-  });
-</script>
