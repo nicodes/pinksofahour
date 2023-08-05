@@ -4,12 +4,10 @@ import Card from "../../components/card/Card.astro";
 import Layout from "../../layouts/Layout.astro";
 import styles from "./contact.module.scss";
 
-const BREVO_API_KEY = import.meta.env.BREVO_API_KEY;
-
 const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
 apiInstance.setApiKey(
   SibApiV3Sdk.TransactionalEmailsApiApiKeys.apiKey,
-  BREVO_API_KEY
+  import.meta.env.BREVO_API_KEY
 );
 
 const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
@@ -25,10 +23,13 @@ if (Astro.request.method === "POST") {
 
     sendSmtpEmail.sender = {
       name: "Pink Sofa Hour",
-      email: "pinksofahour@gmail.com",
+      email: import.meta.env.CONTACT_SENDER_EMAIL,
     };
     sendSmtpEmail.to = [
-      { email: "nicozessoules@gmail.com", name: "Pink Sofa Hour" },
+      {
+        email: import.meta.env.CONTACT_RECIPIENT_EMAIL,
+        name: "Pink Sofa Hour",
+      },
     ];
     sendSmtpEmail.subject = "PSH Contact: " + name;
     sendSmtpEmail.htmlContent = `<html><body>
