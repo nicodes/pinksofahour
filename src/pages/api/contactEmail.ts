@@ -11,48 +11,51 @@ apiInstance.setApiKey(
 
 const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
 
-export const post: APIRoute = async function get({ params, request }) {
-  const { to, subject, text } = params;
+export const post: APIRoute = async function get({ request, redirect }) {
+  const formData = await request.formData();
 
-  let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
-  sendSmtpEmail.subject = "Hi Nico2";
-  sendSmtpEmail.htmlContent =
-    "<html><body><h1>This is my first transactional email {{params.parameter}}</h1></body></html>";
-  sendSmtpEmail.sender = { name: "John Doe", email: "example@example.com" };
-  sendSmtpEmail.to = [{ email: "nicozessoules@gmail.com", name: "Jane Doe" }];
-  // sendSmtpEmail.cc = [{ email: "example2@example2.com", name: "Janice Doe" }];
-  // sendSmtpEmail.bcc = [{ email: "John Doe", name: "example@example.com" }];
-  // sendSmtpEmail.replyTo = { email: "replyto@domain.com", name: "John Doe" };
-  sendSmtpEmail.headers = { "Some-Custom-Name": "unique-id-1234" };
-  sendSmtpEmail.params = {
-    parameter: "My param value",
-    subject: "New Subject",
+  sendSmtpEmail.sender = {
+    name: "Pink Sofa Hour",
+    email: "pinksofahour@gmail.com",
   };
+  sendSmtpEmail.to = [
+    { email: "nicozessoules@gmail.com", name: "Pink Sofa Hour" },
+  ];
+  sendSmtpEmail.subject = "PSH Contact: " + formData.get("name");
+  // sendSmtpEmail.htmlContent = "<html><body><p>test</p></body></html>";
+  sendSmtpEmail.htmlContent = `<html><body>
+  <p>New PSH Contact</p>
+  <ul>
+  <li><strong>Name:</strong> ${formData.get("name")}</li>
+  <li><strong>Previous Interviews:</strong> ${formData.get(
+    "previous-interviews"
+  )}</li>
+  <li><strong>Additional Links:</strong> ${formData.get(
+    "additional-links"
+  )}</li>
+  <li><strong>How did you hear about PSH:</strong> ${formData.get(
+    "how-did-you-hear"
+  )}</li>
+  <li><strong>Favorite thing about your local music scene:</strong> ${formData.get(
+    "favorite-thing"
+  )}</li>
+  </ul>
+  </body></html>`;
 
   let hasError = false;
+  const res = await apiInstance.sendTransacEmail(sendSmtpEmail);
 
-  apiInstance.sendTransacEmail(sendSmtpEmail).then(
-    function (data) {
-      console.log(
-        "API called successfully. Returned data: " + JSON.stringify(data)
-      );
-    },
-    function (error) {
-      hasError = true;
-      console.error(error);
-    }
-  );
+  // .then(
+  //   function (data) {
+  //     console.log(
+  //       "API called successfully. Returned data: " + JSON.stringify(data)
+  //     );
+  //   },
+  //   function (error) {
+  //     hasError = true;
+  //     console.error(error);
+  //   }
+  // );
 
-  if (hasError)
-    return {
-      body: JSON.stringify({
-        name: "error",
-      }),
-    };
-
-  return {
-    body: JSON.stringify({
-      name: "all good",
-    }),
-  };
+  redirect("/contact", 307);
 };

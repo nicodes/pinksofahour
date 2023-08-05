@@ -1,5 +1,20 @@
 @use "../styles/variables.scss" as vars;
 
+.container {
+  // background-color: black;
+
+  form {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: min-content auto;
+  }
+
+  label {
+    white-space: nowrap;
+    text-align: end;
+  }
+}
+
 .eventsList {
   margin: 24px;
   display: grid;

@@ -1,11 +1,42 @@
 ---
+import Card from "../components/card/Card.astro";
 import Layout from "../layouts/Layout.astro";
+import styles from "./contact.module.scss";
 ---
 
 <Layout title="Pink Sofa Hour | Performances">
-  <main>
-    <h1>Contact</h1>
-    <button id="send-email">Send Email</button>
+  <main class={styles.container}>
+    <Card>
+      <h1>Contact</h1>
+
+      <form action="http://localhost:3000/api/contactEmail" method="post">
+        <label for="name-input">Name:</label>
+        <input type="text" id="name-input" name="name" />
+
+        <label for="previous-interviews-input">Previous Interviews:</label>
+        <input
+          type="text"
+          id="previous-interviews-input"
+          name="previous-interviews"
+        />
+
+        <label for="additional-links-input">Additional Links:</label>
+        <textarea id="additional-links-input" name="additional-links"
+        ></textarea>
+
+        <label for="how-did-you-hear-input">How did you hear about PSH?</label>
+        <textarea id="how-did-you-hear-input" name="how-did-you-hear"
+        ></textarea>
+
+        <label for="favorite-thing-input"
+          >Favorite thing about your local music scene?</label
+        >
+        <textarea id="favorite-thing-input" name="favorite-thing"></textarea>
+
+        <div></div>
+        <button id="send-email">Send Email</button>
+      </form>
+    </Card>
   </main>
 </Layout>
 
@@ -27,6 +58,7 @@ import Layout from "../layouts/Layout.astro";
       }
 
       const result = await response.json();
+      console.log(result);
 
       alert(result.message);
     } catch (error) {
