@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Pink Sofa Hour | Performances">
+  <main>
+    <h1>Contact</h1>
+    <button id="send-email">Send Email</button>
+  </main>
+</Layout>
+
+<script>
+  document.querySelector("#send-email")?.addEventListener("click", async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/contactEmail", {
+        method: "POST",
+        body: JSON.stringify({
+          to: "recipient@example.com",
+          subject: "Hello",
+          text: "Hello world!",
+        }),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (!response.ok) {
+        throw new Error("Error sending email");
+      }
+
+      const result = await response.json();
+
+      alert(result.message);
+    } catch (error) {
+      console.error(error);
+      alert("Failed to send email");
+    }
+  });
+</script>
