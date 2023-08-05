@@ -4,16 +4,16 @@ import Card from "../../components/card/Card.astro";
 import Layout from "../../layouts/Layout.astro";
 import styles from "./contact.module.scss";
 
-const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
-apiInstance.setApiKey(
-  SibApiV3Sdk.TransactionalEmailsApiApiKeys.apiKey,
-  import.meta.env.BREVO_API_KEY
-);
-
-const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
-
 if (Astro.request.method === "POST") {
   try {
+    const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+    apiInstance.setApiKey(
+      SibApiV3Sdk.TransactionalEmailsApiApiKeys.apiKey,
+      import.meta.env.BREVO_API_KEY
+    );
+
+    const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
+
     const formData = await Astro.request.formData();
     const name = formData.get("name");
     const previousInterviews = formData.get("previous-interviews");
