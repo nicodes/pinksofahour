@@ -7,18 +7,15 @@ import styles from "./contact.module.scss";
 <Layout title="Pink Sofa Hour | Performances">
   <main class={styles.container}>
     <Card>
-      <h1>Contact</h1>
+      <h2>Contact Us</h2>
 
       <form action="http://localhost:3000/api/contactEmail" method="post">
         <label for="name-input">Name:</label>
         <input type="text" id="name-input" name="name" />
 
         <label for="previous-interviews-input">Previous Interviews:</label>
-        <input
-          type="text"
-          id="previous-interviews-input"
-          name="previous-interviews"
-        />
+        <textarea id="previous-interviews-input" name="previous-interviews"
+        ></textarea>
 
         <label for="additional-links-input">Additional Links:</label>
         <textarea id="additional-links-input" name="additional-links"
@@ -33,7 +30,6 @@ import styles from "./contact.module.scss";
         >
         <textarea id="favorite-thing-input" name="favorite-thing"></textarea>
 
-        <div></div>
         <button id="send-email">Send Email</button>
       </form>
     </Card>
