@@ -1,12 +1,13 @@
 @use "../../styles/variables.scss" as vars;
 
 .container {
+  flex: 1;
+  overflow: hidden;
+  padding: 32px;
+
   background-image: url("https://drive.google.com/uc?id=1JhUOTAFvEL-KkfDTiT1djrQrqikXNNES");
   background-size: cover;
   background-repeat: repeat;
-
-  padding: 32px;
-  height: 100%;
 
   h2 {
     text-align: center;
@@ -70,7 +71,9 @@
 }
 
 .card {
-  height: 80%;
+  max-height: 100%;
+  max-width: 1000px;
+  margin: auto;
 }
 
 // large screens
