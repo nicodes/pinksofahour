@@ -14,17 +14,6 @@
     margin-bottom: 32px;
   }
 
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    // grid-template-columns: min-content auto;
-    align-items: center;
-    max-width: 600px;
-
-    margin: 0 auto;
-  }
-
   h2 {
     font-size: 32px;
     text-decoration: underline;
@@ -36,12 +25,8 @@
 
   input,
   textarea {
-    // background-color: #f2f2f2;
-    // border: 2px solid #000;
     border-radius: 4px;
     padding: 12px 12px;
-    // margin: 8px 0;
-    // box-sizing: border-box;
     font-size: 16px;
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
@@ -51,13 +36,8 @@
     background-color: #4caf50;
     border: none;
     color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    padding: 12px 12px;
     font-size: 16px;
-    margin: 8px 2px;
-    cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s ease;
   }
@@ -76,12 +56,39 @@
   margin: auto;
 }
 
+// mobile
+@media only screen and (max-width: 599px) {
+  .container {
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+
+      & > :nth-child(odd) {
+        margin-bottom: 10px;
+      }
+
+      & > :nth-child(even) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+
 // large screens
 @media only screen and (min-width: 600px) {
   .container {
     form {
       display: grid;
       grid-template-columns: 36% auto;
+      align-items: center;
+      column-gap: 10px;
+      row-gap: 30px;
+
+      & > * {
+        margin-bottom: 0;
+      }
     }
 
     label {
@@ -89,9 +96,7 @@
     }
 
     button {
-      grid-column: span 2;
-      // align-self: center;
-      margin: 0 auto;
+      grid-column: 2;
     }
   }
 }
