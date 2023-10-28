@@ -25,9 +25,26 @@ try {
 ---
 
 <Layout title="Pink Sofa Hour | Performances">
-  <main>
+  <main class={styles.main}>
     <h1>Events</h1>
     <ul class={styles.eventsList}>
+      {events?.map((event, i) => (
+        <Card>
+          <div class={styles.eventsListing}>
+            <div class={styles.dateContainer}>
+              <h2>28</h2>
+              <h3>MONTH</h3>
+              <div></div>
+            </div>
+            <div class={styles.detailsContainer}>
+              <h2>{event.summary}</h2>
+              <p>Date and time</p>
+              <p>city, co</p>
+            </div>
+          </div>
+        </Card>
+      ))
+      }
       {
         events?.map((event, i) => (
           <Card>

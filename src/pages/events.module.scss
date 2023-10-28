@@ -1,8 +1,55 @@
 @use "../styles/variables.scss" as vars;
 
+.main {
+  background-color: rgb(65, 65, 65);
+  height: 100%;
+}
+
 .eventsList {
   margin: 24px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
+}
+
+.eventsList {
+  // border: 2px solid black;
+
+  .eventsListing {
+    display: flex;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    gap: 16px;
+    padding: 16px;
+
+    .dateContainer {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      gap: 8px;
+
+      :first-child {
+        font-size: 24px;
+      }
+
+      :nth-child(2) {
+        font-size: 11px;
+      }
+
+      :last-child {
+        height: 36px;
+        width: 36px;
+        border-radius: 100%;
+        background-color: pink;
+      }
+    }
+
+    .detailsContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+      // margin: 16px;
+    }
+  }
 }
