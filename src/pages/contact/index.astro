@@ -1,54 +1,24 @@
 ---
-import * as SibApiV3Sdk from "@sendinblue/client";
 import Card from "../../components/card/Card.astro";
 import Layout from "../../layouts/Layout.astro";
 import styles from "./contact.module.scss";
+import { sendEmail } from "../../services/brevoService";
 
 if (Astro.request.method === "POST") {
-  try {
-    const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
-    apiInstance.setApiKey(
-      SibApiV3Sdk.TransactionalEmailsApiApiKeys.apiKey,
-      import.meta.env.BREVO_API_KEY
-    );
+  const formData = await Astro.request.formData();
+  const name = String(formData.get("name"));
+  const previousInterviews = String(formData.get("previous-interviews"));
+  const additionalLinks = String(formData.get("additional-links"));
+  const howDidYourHear = String(formData.get("how-did-you-hear"));
+  const favoriteThing = String(formData.get("favorite-thing"));
 
-    const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
-
-    const formData = await Astro.request.formData();
-    const name = formData.get("name");
-    const previousInterviews = formData.get("previous-interviews");
-    const additionalLinks = formData.get("additional-links");
-    const howDidYourHear = formData.get("how-did-you-hear");
-    const favoriteThing = formData.get("favorite-thing");
-
-    sendSmtpEmail.sender = {
-      name: "Pink Sofa Hour",
-      email: import.meta.env.CONTACT_SENDER_EMAIL,
-    };
-    sendSmtpEmail.to = [
-      {
-        email: import.meta.env.CONTACT_RECIPIENT_EMAIL,
-        name: "Pink Sofa Hour",
-      },
-    ];
-    sendSmtpEmail.subject = "PSH Contact: " + name;
-    sendSmtpEmail.htmlContent = `<html><body>
-      <p>New PSH Contact</p>
-      <ul>
-      <li><strong>Name:</strong> ${name}</li>
-      <li><strong>Previous Interviews:</strong> ${previousInterviews}</li>
-      <li><strong>Additional Links:</strong> ${additionalLinks}</li>
-      <li><strong>How did you hear about PSH:</strong> ${howDidYourHear}</li>
-      <li><strong>Favorite thing about your local music scene:</strong> ${favoriteThing}</li>
-      </ul>
-      </body></html>`;
-
-    await apiInstance.sendTransacEmail(sendSmtpEmail);
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    }
-  }
+  sendEmail({
+    name,
+    previousInterviews,
+    additionalLinks,
+    howDidYourHear,
+    favoriteThing,
+  });
 }
 ---
 
@@ -61,23 +31,23 @@ if (Astro.request.method === "POST") {
         <input type="text" id="name-input" name="name" required />
 
         <label for="previous-interviews-input">Any Previous Interviews:</label>
-        <textarea id="previous-interviews-input" name="previous-interviews"
-        ></textarea>
+        <textarea id="previous-interviews-input" name="previous-interviews">
+        </textarea>
 
         <label for="additional-links-input">Additional Links:</label>
-        <textarea id="additional-links-input" name="additional-links"
-        ></textarea>
+        <textarea id="additional-links-input" name="additional-links">
+        </textarea>
 
         <label for="how-did-you-hear-input">How did you hear about PSH?</label>
-        <textarea id="how-did-you-hear-input" name="how-did-you-hear"
-        ></textarea>
+        <textarea id="how-did-you-hear-input" name="how-did-you-hear">
+        </textarea>
 
-        <label for="favorite-thing-input"
-          >Favorite thing about the local music scene?</label
-        >
+        <label for="favorite-thing-input">
+          Favorite thing about the local music scene?
+        </label>
         <textarea id="favorite-thing-input" name="favorite-thing"></textarea>
 
-        <button id="send-email">Send</button>
+        <button>Send</button>
       </form>
     </Card>
   </main>
