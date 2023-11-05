@@ -6,7 +6,7 @@ $border-height: 2px;
     var(--thick); // subtract border height from padding
   border-bottom: $border-height solid var(--white);
 
-  background-image: url("../assets/headerBackground.png");
+  background-image: url("../../../assets/headerBackground.png");
   background-position: center;
   background-size: cover;
 }
