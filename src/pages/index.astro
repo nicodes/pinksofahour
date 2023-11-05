@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/card/Card.astro";
 import { readJsonFileFromDrive } from "../services/youtube";
-import ArtistCard from "../components/artistCard/ArtistCard.astro";
+import YoutubeButton from "../components/youtubeButton/YoutubeButton.astro";
 import styles from "./index.module.scss";
 
 const cardsJsonGoogleDriveId = import.meta.env.GOOGLE_DRIVE_ID;
@@ -57,12 +57,15 @@ const { bio, cards } = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
     {
       // TODO fix any type
       cards?.map((card: any) => (
-        <ArtistCard
-          title={card.title}
-          description={card.description}
-          photoId={card.photoId}
-          videoUrl={card.videoUrl}
-        />
+        <Card class={styles.artistCard}>
+          <img src={`https://drive.google.com/uc?id=${card.photoId}`} />
+          <h2>{card.title}</h2>
+          {card.description && <p>{card.description}</p>}
+          <a target="_blank" href={card.videoUrl}>
+            <YoutubeButton />
+            <p>Watch on Youtube</p>
+          </a>
+        </Card>
       ))
     }
   </div>
