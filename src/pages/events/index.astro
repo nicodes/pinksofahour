@@ -1,10 +1,10 @@
 ---
-import { getEvents } from "../services/googleCalendar";
-import { getFormattedDate } from "../services/date";
+import { getEvents } from "../../services/googleCalendar";
+import { getFormattedDate } from "../../services/date";
 
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/card/Card.astro";
-import Circle from "../components/circle/Circle.astro";
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/card/Card.astro";
+import Circle from "../../components/circle/Circle.astro";
 import styles from "./events.module.scss";
 
 const events = await getEvents();
