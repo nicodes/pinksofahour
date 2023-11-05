@@ -20,7 +20,8 @@ h2,
 h3,
 h4,
 p,
-a {
+a,
+label {
   margin: 0;
   font-size: 18px;
   font-family: NeutraText-Book;

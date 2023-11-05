@@ -1,38 +1,43 @@
 ---
-import { getEvents } from "../../services/googleCalendar";
-import { getFormattedDate } from "../../services/date";
-
 import Layout from "../../layouts/Layout.astro";
 import Card from "../../components/card/Card.astro";
-import Circle from "../../components/circle/Circle.astro";
-import styles from "./events.module.scss";
-
-// const events = await getEvents();
-
-// const dates = events?.map((e) =>
-//   getFormattedDate(e.start?.dateTime || e.start?.date)
-// );
+import styles from "./contact.module.scss";
 ---
 
 <Layout title="PSH | Contact" heading="Contact" class={styles.main}>
-  <!-- {
-    events?.map((event, i) => (
-      <Card class={styles.card}>
-        <div>
-          <p>{dates?.[i]?.day}</p>
-          <Circle>
-            <p class={styles.circleText}>{dates?.[i]?.date}</p>
-          </Circle>
-          <p>{dates?.[i]?.month}</p>
-        </div>
-        <div>
-          <h2>{event.summary}</h2>
-          <p>{event.location}</p>
-          <a href={event.htmlLink}>
-            <p>Details</p>
-          </a>
-        </div>
-      </Card>
-    ))
-  } -->
+  <Card class={styles.card}>
+    <form method="POST">
+      <div>
+        <label for="name-input">Name:</label>
+        <input type="text" id="name-input" name="name" required />
+      </div>
+
+      <div>
+        <label for="previous-interviews-input">Any Previous Interviews:</label>
+        <textarea id="previous-interviews-input" name="previous-interviews">
+        </textarea>
+      </div>
+
+      <div>
+        <label for="additional-links-input">Additional Links:</label>
+        <textarea id="additional-links-input" name="additional-links">
+        </textarea>
+      </div>
+
+      <div>
+        <label for="how-did-you-hear-input">How did you hear about PSH?</label>
+        <textarea id="how-did-you-hear-input" name="how-did-you-hear">
+        </textarea>
+      </div>
+
+      <div>
+        <label for="favorite-thing-input">
+          Favorite thing about the local music scene?
+        </label>
+        <textarea id="favorite-thing-input" name="favorite-thing"></textarea>
+      </div>
+
+      <button>Send</button>
+    </form>
+  </Card>
 </Layout>
