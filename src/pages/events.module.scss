@@ -29,8 +29,13 @@
         gap: 12px;
       }
 
+      // left column
       > :first-child {
         align-items: center;
+      }
+
+      h2 {
+        font-size: 30px;
       }
     }
   }
