@@ -4,6 +4,8 @@
   align-items: center;
   gap: 24px;
   background-image: url("../assets/backgroundBlurred.png");
+  background-position: center;
+  background-size: cover;
 
   > * {
     max-width: var(--content-max-width);
