@@ -2,12 +2,14 @@
 import styles from "./card.module.scss";
 
 interface Props {
+  el?: keyof HTMLElementTagNameMap;
   class?: string;
 }
 
-const { class: className } = Astro.props;
+const { el = "section", class: className } = Astro.props;
+const El = el;
 ---
 
-<section class={`${styles.card} ${className}`}>
+<El class={`${styles.card} ${className}`}>
   <slot />
-</section>
+</El>

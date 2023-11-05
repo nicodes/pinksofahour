@@ -1,0 +1,41 @@
+.main {
+  > * {
+    // overwrite max-width to be thinner
+    max-width: 600px;
+  }
+
+  .card {
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--thick);
+      display: flex;
+    }
+
+    label {
+      display: block;
+
+      & > :first-child {
+        margin-top: var(--thin);
+      }
+    }
+  }
+
+  input,
+  textarea {
+    border-radius: 4px;
+    padding: 12px 12px;
+    font-size: 16px;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  button {
+    background-color: var(--pink);
+    border: none;
+    color: white;
+    padding: 12px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+}

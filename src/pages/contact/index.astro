@@ -1,0 +1,39 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/card/Card.astro";
+import styles from "./contact.module.scss";
+---
+
+<Layout title="PSH | Contact" heading="Contact" class={styles.main}>
+  <Card class={styles.card}>
+    <form method="POST">
+      <label>
+        <span>Name:</span>
+        <input type="text" name="name" required />
+      </label>
+
+      <label>
+        <span>Any Previous Interviews:</span>
+        <textarea name="previous-interviews"> </textarea>
+      </label>
+
+      <label for="additional-links-input">
+        <span>Additional Links:</span>
+        <textarea id="additional-links-input" name="additional-links">
+        </textarea>
+      </label>
+
+      <label>
+        <span>How did you hear about PSH?</span>
+        <textarea name="how-did-you-hear"> </textarea>
+      </label>
+
+      <label>
+        <span>Favorite thing about the local music scene?</span>
+        <textarea name="favorite-thing"></textarea>
+      </label>
+
+      <button type="submit">Send</button>
+    </form>
+  </Card>
+</Layout>

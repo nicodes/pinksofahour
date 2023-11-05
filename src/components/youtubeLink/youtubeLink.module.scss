@@ -1,0 +1,24 @@
+.container {
+  width: min-content; // needed so link doesn't span 100% width
+  text-decoration: none;
+
+  display: flex;
+  gap: var(--thin);
+  align-items: center;
+
+  img {
+    max-width: 48px;
+    height: auto;
+  }
+
+  p {
+    white-space: nowrap; // needed so link doesn't span 100% width
+  }
+
+  &:hover {
+    p {
+      text-decoration: underline;
+      text-decoration-color: red;
+    }
+  }
+}

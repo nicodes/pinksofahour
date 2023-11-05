@@ -1,0 +1,17 @@
+---
+import { Image } from "astro:assets";
+
+import styles from "./youtubeLink.module.scss";
+import pshLogo from "../../assets/youtube.svg";
+
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a target="_blank" href={href} class={styles.container}>
+  <Image src={pshLogo} alt="episode youtube link" />
+  <p>Watch on Youtube</p>
+</a>

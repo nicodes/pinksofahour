@@ -1,0 +1,10 @@
+.circle {
+  width: 60px; // TODO add to props
+  height: 60px;
+  border-radius: 50%; /* Circular shape */
+  background-color: var(--pink); /* Using the color prop */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

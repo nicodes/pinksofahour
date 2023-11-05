@@ -1,0 +1,43 @@
+$border-height: 2px;
+
+.header {
+  height: 64px;
+  padding: var(--thin) var(--thick) calc(var(--thin) - $border-height)
+    var(--thick); // subtract border height from padding
+  border-bottom: $border-height solid var(--white);
+
+  background-image: url("../../../assets/headerBackground.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.widthContainer {
+  height: 100%;
+  max-width: var(--content-max-width);
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  gap: var(--thick);
+
+  a {
+    height: 100%;
+    color: var(--white);
+
+    display: flex;
+    align-items: center;
+
+    &:not(:first-child) img {
+      height: 60%;
+    }
+  }
+
+  img {
+    height: 100%;
+    width: auto;
+  }
+}
+
+.right {
+  margin-left: auto;
+}

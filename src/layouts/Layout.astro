@@ -1,11 +1,19 @@
 ---
-import Header from "./Header.astro";
+import { ViewTransitions } from "astro:transitions";
+
+import Header from "./partials/header/Header.astro";
+import Card from "../components/card/Card.astro";
+
+import styles from "./layout.module.scss";
+import "../styles/index.css";
 
 interface Props {
   title: string;
+  heading?: string;
+  class?: string;
 }
 
-const { title } = Astro.props;
+const { title, heading, class: className } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -15,72 +23,20 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+    <ViewTransitions />
     <title>{title}</title>
   </head>
   <body>
     <Header />
-    <slot />
+    <main class={`${styles.main} ${className}`}>
+      {
+        heading && (
+          <Card>
+            <h1>{heading}</h1>
+          </Card>
+        )
+      }
+      <slot />
+    </main>
   </body>
 </html>
-
-<!-- TODO this should be moved into .module.scss file -->
-<style is:global>
-   {
-    /* reset all browswer specific spacing */
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-  }
-
-  @font-face {
-    font-family: "NeutraText-Bold";
-    src: url("/fonts/NeutraText-Bold.otf") format("opentype");
-  }
-
-  @font-face {
-    font-family: "NeutraText-Book";
-    src: url("/fonts/NeutraText-Book.otf") format("opentype");
-  }
-
-  @font-face {
-    font-family: "PlincSuperstar";
-    src: url("/fonts/PlincSuperstar.otf") format("opentype");
-  }
-
-  @font-face {
-    font-family: "SignPainter-HouseBrush";
-    src: url("/fonts/SignPainter-HouseBrush.otf") format("opentype");
-  }
-
-  h1 {
-    /* font-family: PlincSuperstar; */
-    font-family: SignPainter-HouseBrush;
-  }
-
-  h2,
-  h3,
-  h4,
-  p {
-    font-family: NeutraText-Book;
-  }
-
-  h2,
-  h3,
-  h4,
-  p {
-    color: white;
-  }
-
-  html,
-  body {
-    height: 100%;
-  }
-
-  body {
-    display: flex;
-    flex-direction: column;
-  }
-</style>

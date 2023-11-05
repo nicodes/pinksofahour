@@ -1,0 +1,38 @@
+---
+import { getEvents } from "../../services/googleCalendar";
+import { getFormattedDate } from "../../services/date";
+
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/card/Card.astro";
+import Circle from "../../components/circle/Circle.astro";
+import styles from "./events.module.scss";
+
+const events = await getEvents();
+
+const dates = events?.map((e) =>
+  getFormattedDate(e.start?.dateTime || e.start?.date)
+);
+---
+
+<Layout title="PSH | Events" heading="Events" class={styles.main}>
+  {
+    events?.map((event, i) => (
+      <Card class={styles.card}>
+        <div>
+          <p>{dates?.[i]?.day}</p>
+          <Circle>
+            <p class={styles.circleText}>{dates?.[i]?.date}</p>
+          </Circle>
+          <p>{dates?.[i]?.month}</p>
+        </div>
+        <div>
+          <h2>{event.summary}</h2>
+          <p>{event.location}</p>
+          <a href={event.htmlLink}>
+            <p>Details</p>
+          </a>
+        </div>
+      </Card>
+    ))
+  }
+</Layout>
