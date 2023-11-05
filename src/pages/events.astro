@@ -10,19 +10,19 @@ console.log("google calendar id: ", import.meta.env.GOOGLE_CALENDAR_ID);
 let events;
 
 try {
-  // const calendar = google.calendar({
-  //   version: "v3",
-  //   auth: import.meta.env.GOOGLE_API_KEY,
-  // });
-  // console.log("calendar: ", calendar);
-  // const response = await calendar.events.list({
-  //   calendarId: import.meta.env.GOOGLE_CALENDAR_ID,
-  //   timeMin: new Date().toISOString(),
-  //   singleEvents: true,
-  //   orderBy: "startTime",
-  // });
-  // console.log("calendar response: ", response);
-  // events = response.data.items;
+  const calendar = google.calendar({
+    version: "v3",
+    auth: import.meta.env.GOOGLE_API_KEY,
+  });
+  console.log("calendar: ", calendar);
+  const response = await calendar.events.list({
+    calendarId: import.meta.env.GOOGLE_CALENDAR_ID,
+    timeMin: new Date().toISOString(),
+    singleEvents: true,
+    orderBy: "startTime",
+  });
+  console.log("calendar response: ", response);
+  events = response.data.items;
 } catch (error) {
   console.error("Error fetching events", error);
 }
@@ -31,7 +31,7 @@ try {
 <Layout title="Pink Sofa Hour | Performances">
   <main class={styles.main}>
     <h1>Events</h1>
-    <!-- <ul class={styles.eventsList}>
+    <ul class={styles.eventsList}>
       {
         events?.map((event, i) => (
           <Card>
@@ -60,6 +60,6 @@ try {
           </Card>
         ))
       }
-    </ul> -->
+    </ul>
   </main>
 </Layout>
