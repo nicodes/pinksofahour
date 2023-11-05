@@ -1,14 +1,12 @@
 ---
-// import styles from "./test.module.scss";
+import { Image } from "astro:assets";
+import localBirdImage from "../assets/pshLogo.png";
+import styles from "./header.module.scss";
 ---
 
 <header>
   <!-- <img class="menu" src="../../menu-icon.png" alt="menu icon" /> -->
-  <img
-    class="logo"
-    src="https://drive.google.com/uc?id=1sJJPcxCgPYdBScBvoBgBXmek303s1HCr"
-    alt="pink sofa hour logo"
-  />
+  <Image src={localBirdImage} alt="pink sofa hour logo" class={styles.img} />
   <!-- <p>test</p> -->
   <!-- <div class="menu-links">
     <a>Episodes</a>
@@ -36,7 +34,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-image: url("https://drive.google.com/uc?id=1gar0paPJvyfRY5ysMXvYIRGQ_G2M5Qz4");
+    background-image: url("../assets/headerBackground.png");
+    background-position: center;
     background-size: cover;
     border-bottom: 2px solid white;
   }
