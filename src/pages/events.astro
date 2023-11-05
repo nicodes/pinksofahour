@@ -21,6 +21,8 @@ try {
     orderBy: "startTime",
   });
 
+  console.log("calendar response: ", response);
+
   events = response.data.items;
 } catch (error) {
   console.error("Error fetching events", error);
