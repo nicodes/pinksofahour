@@ -1,0 +1,11 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  background-image: url("../assets/backgroundBlurred.png");
+
+  > * {
+    max-width: var(--content-max-width);
+  }
+}

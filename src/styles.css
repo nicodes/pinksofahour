@@ -6,3 +6,63 @@
   --content-max-width: 1200px;
   --artist-card-min-size: 300px;
 }
+
+@font-face {
+  font-family: "NeutraText-Bold";
+  src: url("/fonts/NeutraText-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "NeutraText-Book";
+  src: url("/fonts/NeutraText-Book.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "PlincSuperstar";
+  src: url("/fonts/PlincSuperstar.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "SignPainter-HouseBrush";
+  src: url("/fonts/SignPainter-HouseBrush.otf") format("opentype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: SignPainter-HouseBrush;
+  margin: 0;
+}
+
+h2,
+h3,
+h4,
+p {
+  font-family: NeutraText-Book;
+}
+
+h2,
+h3,
+h4,
+p {
+  color: white;
+}
+
+h1 {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}

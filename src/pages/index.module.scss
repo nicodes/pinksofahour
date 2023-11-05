@@ -4,20 +4,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-items: center;
   padding: 12px 24px;
   gap: 24px;
 
-  background-image: url("../assets/backgroundBlurred.png");
   background-size: cover;
 
   overflow-y: scroll;
-}
 
-.intro {
   width: 100%;
-  max-width: var(--content-max-width);
+  //   max-width: var(--content-max-width);
   display: grid;
   row-gap: 12px;
+
+  // > * {
+  //   mar
+  // }
 
   h1 {
     font-size: 40px;
@@ -37,6 +39,8 @@
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
   height: 0;
   overflow: hidden;
+  height: 100%;
+  width: 100%;
 
   iframe {
     position: absolute;
@@ -74,7 +78,7 @@
 }
 
 .episodeGrid {
-  max-width: var(--content-max-width);
+  //   max-width: var(--content-max-width);
   display: grid;
   grid-template-columns: repeat(
     auto-fill,

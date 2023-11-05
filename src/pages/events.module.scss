@@ -4,12 +4,20 @@
   height: 100%;
   padding: 20px;
 
+  // manual overwrite for header card
+  & > :first-child {
+    max-width: 600px;
+  }
+
   h1 {
     display: block;
     margin: auto;
-    color: white;
     text-align: center;
-    margin-bottom: 20px;
+    font-size: 40px;
+    color: #d023a4;
+    text-shadow: 2px 2px 2px #fffbcc;
+    // text-shadow: 2px 2px 4px #fffbcc, 4px 4px 2px #022366; /* experimenting with double shadows for readibility */
+    position: relative;
   }
 
   ul {

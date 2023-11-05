@@ -16,7 +16,13 @@ const dates = events?.map((e) =>
 ---
 
 <Layout title="Pink Sofa Hour | Events" class={styles.main}>
-  <h1>Events</h1>
+  <Card>
+    <h1
+      style="font-family: SignPainter-HouseBrush; letter-spacing: 0.5rem; text-align: center;"
+    >
+      Events
+    </h1>
+  </Card>
   <ul>
     {
       events?.map((event, i) => (
@@ -31,7 +37,6 @@ const dates = events?.map((e) =>
           <div>
             <h2>{event.summary}</h2>
             <p>{event.location}</p>
-            <p>{event.description}</p>
             <a href={event.htmlLink}>
               <p>Details</p>
             </a>
@@ -41,3 +46,5 @@ const dates = events?.map((e) =>
     }
   </ul>
 </Layout>
+
+<!-- <p>{event.description}</p> -->

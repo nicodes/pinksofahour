@@ -10,35 +10,33 @@ const { bio, cards } = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
 ---
 
 <Layout title="Pink Sofa Hour" class={styles.indexView}>
-  <div class={styles.intro}>
-    <Card>
-      <h1 style="letter-spacing: 0.5rem;">Pink Sofa Hour</h1>
-      <!-- Couldn't get this css property to work in the modules file -->
-    </Card>
+  <Card>
+    <h1 style="letter-spacing: 0.5rem; text-align: center;">Pink Sofa Hour</h1>
+    <!-- Couldn't get this css property to work in the modules file -->
+  </Card>
 
-    <div class={styles.introVideo}>
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/O50RrxSSbqw"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-    </div>
-
-    <Card>
-      <p>
-        {
-          bio?.map((e: any) => {
-            if (typeof e === "string") return e;
-            else if (typeof e.text === "string" && typeof e.href === "string")
-              return <a href={e.href}>{e.text}</a>;
-          })
-        }
-      </p>
-    </Card>
+  <div class={styles.introVideo}>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/O50RrxSSbqw"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
   </div>
+
+  <Card>
+    <p>
+      {
+        bio?.map((e: any) => {
+          if (typeof e === "string") return e;
+          else if (typeof e.text === "string" && typeof e.href === "string")
+            return <a href={e.href}>{e.text}</a>;
+        })
+      }
+    </p>
+  </Card>
 
   <!-- <Card>
       <div class={styles.gridHeader}>

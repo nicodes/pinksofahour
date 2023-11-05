@@ -1,5 +1,6 @@
 ---
 import Header from "./Header.astro";
+import styles from "./layout.module.scss";
 import "../styles.css";
 
 interface Props {
@@ -21,70 +22,8 @@ const { title, class: className } = Astro.props;
   </head>
   <body>
     <Header />
-    <main class={className}>
+    <main class={`${styles.main} ${className}`}>
       <slot />
     </main>
   </body>
 </html>
-
-<!-- TODO this should be moved into .module.scss file -->
-<style is:global>
-   {
-    /* reset all browswer specific spacing */
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-  }
-
-  @font-face {
-    font-family: "NeutraText-Bold";
-    src: url("/fonts/NeutraText-Bold.otf") format("opentype");
-  }
-
-  @font-face {
-    font-family: "NeutraText-Book";
-    src: url("/fonts/NeutraText-Book.otf") format("opentype");
-  }
-
-  @font-face {
-    font-family: "PlincSuperstar";
-    src: url("/fonts/PlincSuperstar.otf") format("opentype");
-  }
-
-  @font-face {
-    font-family: "SignPainter-HouseBrush";
-    src: url("/fonts/SignPainter-HouseBrush.otf") format("opentype");
-  }
-
-  h1 {
-    /* font-family: PlincSuperstar; */
-    font-family: SignPainter-HouseBrush;
-  }
-
-  h2,
-  h3,
-  h4,
-  p {
-    font-family: NeutraText-Book;
-  }
-
-  h2,
-  h3,
-  h4,
-  p {
-    color: white;
-  }
-
-  html,
-  body {
-    height: 100%;
-  }
-
-  body {
-    display: flex;
-    flex-direction: column;
-  }
-</style>
