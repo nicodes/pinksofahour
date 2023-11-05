@@ -1,8 +1,13 @@
 .main {
+  height: 100%;
+  overflow-y: scroll;
+  padding: 20px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: var(--thick);
+
   background-image: url("../assets/backgroundBlurred.png");
   background-position: center;
   background-size: cover;

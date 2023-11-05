@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    height: 100%;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  h1 {
+    font-family: SignPainter-HouseBrush;
+    margin: 0;
+  }
+  
+  h2,
+  h3,
+  h4,
+  p {
+    margin: 0;
+    font-family: NeutraText-Book;
+    color: var(--white);
+  }

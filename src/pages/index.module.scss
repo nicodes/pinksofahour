@@ -1,25 +1,5 @@
-.indexView {
+.main {
   height: 100%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
-  padding: 12px 24px;
-  gap: 24px;
-
-  background-size: cover;
-
-  overflow-y: scroll;
-
-  width: 100%;
-  //   max-width: var(--content-max-width);
-  display: grid;
-  row-gap: 12px;
-
-  // > * {
-  //   mar
-  // }
 
   h1 {
     font-size: 40px;
@@ -36,11 +16,9 @@
 
 .introVideo {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  height: 0;
   overflow: hidden;
-  height: 100%;
   width: 100%;
+  padding-bottom: min(56.25%, 400px); /* used as height, 16:9 aspect ratio */
 
   iframe {
     position: absolute;
@@ -78,43 +56,41 @@
 }
 
 .episodeGrid {
-  //   max-width: var(--content-max-width);
+  width: 100%; /* fixes auto-shrinking bug */
   display: grid;
   grid-template-columns: repeat(
     auto-fill,
     minmax(var(--artist-card-min-size), 1fr)
   );
-  grid-gap: 1rem;
-  column-gap: 1rem;
-  /* border: red 5px solid; */
-  width: 100%;
-}
+  grid-gap: var(--thin);
+  column-gap: var(--thin);
 
-.artistCard {
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  img {
-    max-width: 100%;
-    height: auto;
-    border: #fffbcc 10px solid;
-    border-radius: 2px;
-  }
-
-  a {
+  section {
+    max-width: 600px;
     display: flex;
-    align-items: center;
-    text-decoration: none;
-    margin-top: auto;
+    flex-direction: column;
+    gap: 20px;
 
-    p {
-      margin-left: 12px;
+    img {
+      max-width: 100%;
+      height: auto;
+      border: #fffbcc 10px solid;
+      border-radius: 2px;
+    }
 
-      &:hover {
-        text-decoration: underline;
-        text-decoration-color: red;
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      margin-top: auto;
+
+      p {
+        margin-left: var(--thin);
+
+        &:hover {
+          text-decoration: underline;
+          text-decoration-color: red;
+        }
       }
     }
   }

@@ -9,10 +9,13 @@ const cardsJsonGoogleDriveId = import.meta.env.GOOGLE_DRIVE_ID;
 const { bio, cards } = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
 ---
 
-<Layout title="Pink Sofa Hour" class={styles.indexView}>
+<Layout title="Pink Sofa Hour" class={styles.main}>
   <Card>
-    <h1 style="letter-spacing: 0.5rem; text-align: center;">Pink Sofa Hour</h1>
-    <!-- Couldn't get this css property to work in the modules file -->
+    <h1
+      style="font-family: SignPainter-HouseBrush; letter-spacing: 0.5rem; text-align: center;"
+    >
+      Pink Sofa Hour
+    </h1>
   </Card>
 
   <div class={styles.introVideo}>
@@ -38,24 +41,11 @@ const { bio, cards } = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
     </p>
   </Card>
 
-  <!-- <Card>
-      <div class={styles.gridHeader}>
-        <form action="/">
-          <select name="" id="">
-            <option value="full-episodes">Full Episodes</option>
-            <option value="performances">Performances</option>
-            <option value="clips">Clips</option>
-          </select>
-        </form>
-        <h4>View all</h4>
-      </div>
-    </Card> -->
-
   <div class={styles.episodeGrid}>
     {
       // TODO fix any type
       cards?.map((card: any) => (
-        <Card class={styles.artistCard}>
+        <Card>
           <img src={`https://drive.google.com/uc?id=${card.photoId}`} />
           <h2>{card.title}</h2>
           {card.description && <p>{card.description}</p>}

@@ -8,7 +8,6 @@ import Circle from "../components/circle/Circle.astro";
 import styles from "./events.module.scss";
 
 const events = await getEvents();
-console.log(events?.[0]);
 
 const dates = events?.map((e) =>
   getFormattedDate(e.start?.dateTime || e.start?.date)
@@ -23,28 +22,26 @@ const dates = events?.map((e) =>
       Events
     </h1>
   </Card>
-  <ul>
-    {
-      events?.map((event, i) => (
-        <Card el="li">
-          <div>
-            <p>{dates?.[i]?.day}</p>
-            <Circle>
-              <p class={styles.circleText}>{dates?.[i]?.date}</p>
-            </Circle>
-            <p>{dates?.[i]?.month}</p>
-          </div>
-          <div>
-            <h2>{event.summary}</h2>
-            <p>{event.location}</p>
-            <a href={event.htmlLink}>
-              <p>Details</p>
-            </a>
-          </div>
-        </Card>
-      ))
-    }
-  </ul>
+  {
+    events?.map((event, i) => (
+      <Card class={styles.card}>
+        <div>
+          <p>{dates?.[i]?.day}</p>
+          <Circle>
+            <p class={styles.circleText}>{dates?.[i]?.date}</p>
+          </Circle>
+          <p>{dates?.[i]?.month}</p>
+        </div>
+        <div>
+          <h2>{event.summary}</h2>
+          <p>{event.location}</p>
+          <a href={event.htmlLink}>
+            <p>Details</p>
+          </a>
+        </div>
+      </Card>
+    ))
+  }
 </Layout>
 
 <!-- <p>{event.description}</p> -->

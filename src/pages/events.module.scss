@@ -1,55 +1,22 @@
 .main {
-  background-color: rgb(65, 65, 65);
-  overflow-y: scroll;
-  height: 100%;
-  padding: 20px;
-
-  // manual overwrite for header card
-  & > :first-child {
+  > * {
     max-width: 600px;
   }
 
   h1 {
+    position: relative;
     display: block;
     margin: auto;
+
     text-align: center;
     font-size: 40px;
     color: #d023a4;
     text-shadow: 2px 2px 2px #fffbcc;
     // text-shadow: 2px 2px 4px #fffbcc, 4px 4px 2px #022366; /* experimenting with double shadows for readibility */
-    position: relative;
   }
 
-  ul {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-width: 600px;
-    margin: auto;
-
-    li {
-      display: flex;
-      gap: 24px;
-
-      > * {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      // left column
-      > :first-child {
-        align-items: center;
-      }
-
-      > :last-child {
-        flex: 1;
-      }
-
-      h2 {
-        font-size: 30px;
-      }
-    }
+  h2 {
+    font-size: 30px;
   }
 
   a {
@@ -58,55 +25,28 @@
   }
 }
 
+.card {
+  display: flex;
+  gap: var(--thick);
+
+  // both columns
+  & > * {
+    display: flex;
+    flex-direction: column;
+    gap: var(--thin);
+  }
+
+  // left column
+  & > :first-child {
+    align-items: center;
+  }
+
+  // right column
+  & > :last-child {
+    flex: 1;
+  }
+}
+
 .circleText {
   font-size: 40px;
 }
-
-// .eventsList {
-//   margin: 24px;
-//   display: grid;
-//   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-//   gap: 24px;
-// }
-
-// .eventsList {
-//   // border: 2px solid black;
-
-//   li {
-//     display: flex;
-//     border-top: 1px solid white;
-//     border-bottom: 1px solid white;
-//     gap: 16px;
-//     padding: 16px;
-
-//     .dateContainer {
-//       display: flex;
-//       flex-direction: column;
-//       text-align: center;
-//       gap: 8px;
-
-//       :first-child {
-//         font-size: 24px;
-//       }
-
-//       :nth-child(2) {
-//         font-size: 11px;
-//       }
-
-//       :last-child {
-//         height: 36px;
-//         width: 36px;
-//         border-radius: 100%;
-//         background-color: pink;
-//       }
-//     }
-
-//     .detailsContainer {
-//       display: flex;
-//       flex-direction: column;
-//       justify-content: center;
-//       gap: 8px;
-//       // margin: 16px;
-//     }
-//   }
-// }
