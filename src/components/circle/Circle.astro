@@ -1,0 +1,9 @@
+---
+import styles from "./circle.module.scss";
+
+const { size = '50px', color = 'blue' } = Astro.props; // default size and color
+---
+
+<div class={styles.circle}>
+    <slot></slot> <!-- Default slot content -->
+</div>

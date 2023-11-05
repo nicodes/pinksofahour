@@ -1,44 +1,43 @@
 ---
 import { getEvents } from "../services/googleCalendar";
+import { getFormattedDate } from "../services/date";
+
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/card/Card.astro";
+import Circle from "../components/circle/Circle.astro";
 import styles from "./events.module.scss";
 
 const events = await getEvents();
+console.log(events?.[0]);
+
+const dates = events?.map((e) =>
+  getFormattedDate(e.start?.dateTime || e.start?.date)
+);
 ---
 
-<Layout title="Pink Sofa Hour | Events">
-  <main class={styles.main}>
-    <h1>Events</h1>
-    <ul class={styles.eventsList}>
-      {
-        events?.map((event, i) => (
-          <Card el="li">
-            <div class={styles.eventsListing}>
-              <div class={styles.dateContainer}>
-                <h2>28</h2>
-                <h3>MONTH</h3>
-                <div />
-              </div>
-              <div class={styles.detailsContainer}>
-                <h2>{event.summary}</h2>
-                <p>Date and time</p>
-                <p>city, co</p>
-              </div>
-            </div>
-          </Card>
-        ))
-      }
-      {
-        events?.map((event, i) => (
-          <Card>
-            <h2>{event.summary}</h2>
+<Layout title="Pink Sofa Hour | Events" class={styles.main}>
+  <h1>Events</h1>
+  <ul>
+    {
+      events?.map((event, i) => (
+        <Card el="li">
+          <div>
+            <p>{dates?.[i]?.day}</p>
+            <Circle>
+              <p class={styles.circleText}>{dates?.[i]?.date}</p>
+            </Circle>
+            <p>{dates?.[i]?.month}</p>
+          </div>
+          <div>
+            <p>{event.summary}</p>
+            <p>{event.location}</p>
             <p>{event.description}</p>
-            <p>Start: {event?.start?.dateTime || event?.start?.date}</p>
-            <p>End: {event?.end?.dateTime || event?.end?.date}</p>
-          </Card>
-        ))
-      }
-    </ul>
-  </main>
+            <a href={event.htmlLink}>
+              <p>Details</p>
+            </a>
+          </div>
+        </Card>
+      ))
+    }
+  </ul>
 </Layout>

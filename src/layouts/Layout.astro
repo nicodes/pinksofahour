@@ -4,9 +4,10 @@ import "../styles.css";
 
 interface Props {
   title: string;
+  class?: string;
 }
 
-const { title } = Astro.props;
+const { title, class: className } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -20,7 +21,9 @@ const { title } = Astro.props;
   </head>
   <body>
     <Header />
-    <slot />
+    <main class={className}>
+      <slot />
+    </main>
   </body>
 </html>
 
