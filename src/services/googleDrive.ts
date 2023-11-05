@@ -9,5 +9,6 @@ export async function getJson() {
     return json;
   } catch (e) {
     console.error(e);
+    return {};
   }
 }

@@ -3,6 +3,9 @@
   padding: 0;
   border: 0;
   box-sizing: border-box;
+
+  font-size: var(--font-size-sm);
+  font-family: NeutraText-Book;
 }
 
 html,
@@ -23,11 +26,9 @@ p,
 a,
 label {
   margin: 0;
-  font-size: 18px;
-  font-family: NeutraText-Book;
   color: var(--white);
 }
 
 p {
-  line-height: 1.6;
+  line-height: 1.2;
 }

@@ -13,9 +13,11 @@
     }
 
     label {
-      font-size: 18px;
       display: block;
-      margin-bottom: var(--thin);
+
+      & > :first-child {
+        margin-top: var(--thin);
+      }
     }
   }
 
@@ -29,11 +31,10 @@
   }
 
   button {
-    background-color: #4caf50;
+    background-color: var(--pink);
     border: none;
     color: white;
     padding: 12px 12px;
-    font-size: 16px;
     border-radius: 4px;
     transition: background-color 0.3s ease;
   }

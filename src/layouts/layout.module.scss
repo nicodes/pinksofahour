@@ -1,7 +1,7 @@
 .main {
   flex: 1;
   overflow-y: scroll;
-  padding: var(--thin) var(--thick);
+  padding: var(--thin);
 
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@
   }
 
   h1 {
-    font-size: 40px;
+    font-size: var(--font-size-lg);
     font-family: SignPainter-HouseBrush;
     letter-spacing: 0.5rem;
     text-align: center;

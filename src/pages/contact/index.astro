@@ -7,37 +7,33 @@ import styles from "./contact.module.scss";
 <Layout title="PSH | Contact" heading="Contact" class={styles.main}>
   <Card class={styles.card}>
     <form method="POST">
-      <div>
-        <label for="name-input">Name:</label>
-        <input type="text" id="name-input" name="name" required />
-      </div>
+      <label>
+        <span>Name:</span>
+        <input type="text" name="name" required />
+      </label>
 
-      <div>
-        <label for="previous-interviews-input">Any Previous Interviews:</label>
-        <textarea id="previous-interviews-input" name="previous-interviews">
-        </textarea>
-      </div>
+      <label>
+        <span>Any Previous Interviews:</span>
+        <textarea name="previous-interviews"> </textarea>
+      </label>
 
-      <div>
-        <label for="additional-links-input">Additional Links:</label>
+      <label for="additional-links-input">
+        <span>Additional Links:</span>
         <textarea id="additional-links-input" name="additional-links">
         </textarea>
-      </div>
+      </label>
 
-      <div>
-        <label for="how-did-you-hear-input">How did you hear about PSH?</label>
-        <textarea id="how-did-you-hear-input" name="how-did-you-hear">
-        </textarea>
-      </div>
+      <label>
+        <span>How did you hear about PSH?</span>
+        <textarea name="how-did-you-hear"> </textarea>
+      </label>
 
-      <div>
-        <label for="favorite-thing-input">
-          Favorite thing about the local music scene?
-        </label>
-        <textarea id="favorite-thing-input" name="favorite-thing"></textarea>
-      </div>
+      <label>
+        <span>Favorite thing about the local music scene?</span>
+        <textarea name="favorite-thing"></textarea>
+      </label>
 
-      <button>Send</button>
+      <button type="submit">Send</button>
     </form>
   </Card>
 </Layout>

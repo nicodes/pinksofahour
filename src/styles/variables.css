@@ -9,4 +9,18 @@
   --fine: 8px;
   --thin: 12px;
   --thick: 24px;
+
+  --font-size-lg: 40px;
+  --font-size-md: 32px;
+  --font-size-sm: 24px;
+  --font-size-xs: 16px;
 }
+
+/* @media screen and (min-width: 768px) {
+  :root {
+    --font-size-lg: 48px;
+    --font-size-md: 40px;
+    --font-size-sm: 32px;
+    --font-size-xs: 18px;
+  }
+} */

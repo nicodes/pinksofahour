@@ -18,12 +18,11 @@ $border-height: 2px;
 
   display: flex;
   align-items: center;
-  gap: var(--thin);
+  gap: var(--thick);
 
   a {
     height: 100%;
     color: var(--white);
-    font-size: 22px;
 
     display: flex;
     align-items: center;

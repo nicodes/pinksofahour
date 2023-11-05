@@ -4,10 +4,6 @@
     max-width: 600px !important;
   }
 
-  h2 {
-    font-size: 36px;
-  }
-
   a {
     color: var(--white);
     margin-left: auto;
@@ -34,9 +30,13 @@
   & > :last-child {
     gap: var(--fine);
     flex: 1;
+
+    & > :first-child {
+      font-size: var(--font-size-md);
+    }
   }
 }
 
 .circleText {
-  font-size: 40px;
+  font-size: var(--font-size-lg);
 }

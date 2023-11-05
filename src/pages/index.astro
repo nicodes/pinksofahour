@@ -1,14 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/card/Card.astro";
-import { getJson } from "../services/googleDrive";
-import YoutubeLink from "../components/youtubeLink/YoutubeLink.astro";
 import styles from "./index.module.scss";
-
-const { bio, cards } = await getJson();
 ---
 
-<Layout title="Pink Sofa Hour" heading="Pink Sofa Hour" class={styles.main}>
+<Layout title="Pink Sofa Hour" heading="Pink Sofa Hour">
   <div class={styles.introVideo}>
     <iframe
       width="560"
@@ -20,38 +16,13 @@ const { bio, cards } = await getJson();
       allowfullscreen></iframe>
   </div>
 
-  {
-    bio && (
-      <Card class={styles.info}>
-        <p>
-          {
-            // format <a> from text
-            bio?.map((e: any) => {
-              if (typeof e === "string") return e;
-              else if (typeof e.text === "string" && typeof e.href === "string")
-                return <a href={e.href}>{e.text}</a>;
-            })
-          }
-        </p>
-      </Card>
-    )
-  }
-
-  {
-    cards && (
-      <div class={styles.grid}>
-        {
-          // TODO fix any type
-          cards.map((card: any) => (
-            <Card>
-              <img src={`https://drive.google.com/uc?id=${card.photoId}`} />
-              <h2>{card.title}</h2>
-              {card.description && <p>{card.description}</p>}
-              <YoutubeLink href={card.videoUrl} />
-            </Card>
-          ))
-        }
-      </div>
-    )
-  }
+  <Card>
+    <p>
+      Pink Sofa Hour is a live-streamed YouTube show run by Pedro with the
+      intention of connecting artists and audiences. Here's a great article that
+      <a href="https://www.google.com">Westword</a>
+      did about the show! Check out our upcoming events
+      <a href="events">here!</a>
+    </p>
+  </Card>
 </Layout>
