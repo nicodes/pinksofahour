@@ -7,15 +7,15 @@ import Card from "../components/card/Card.astro";
 console.log("google api key: ", import.meta.env.GOOGLE_API_KEY);
 console.log("google calendar id: ", import.meta.env.GOOGLE_CALENDAR_ID);
 
-const calendar = google.calendar({
-  version: "v3",
-  auth: import.meta.env.GOOGLE_API_KEY,
-});
-console.log("calendar: ", calendar);
-
 let events;
 
 try {
+  const calendar = google.calendar({
+    version: "v3",
+    auth: import.meta.env.GOOGLE_API_KEY,
+  });
+  console.log("calendar: ", calendar);
+
   const response = await calendar.events.list({
     calendarId: import.meta.env.GOOGLE_CALENDAR_ID,
     timeMin: new Date().toISOString(),
