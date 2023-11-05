@@ -1,10 +1,3 @@
-/** Gets public json from gdrive file id */
-export async function readJsonFileFromDrive(fileId: string) {
-  const fileUrl = `https://drive.google.com/uc?id=${fileId}&export=download`;
-  const fileResponse = await fetch(fileUrl);
-  return fileResponse.json();
-}
-
 /** Gets most recent N videos from Pink Sofa Hour youtube channel */
 export async function getRecentFromChannel(maxResults: number = 5) {
   const requestUrl =

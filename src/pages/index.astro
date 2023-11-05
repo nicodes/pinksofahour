@@ -1,12 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/card/Card.astro";
-import { readJsonFileFromDrive } from "../services/youtube";
+import { getJson } from "../services/googleDrive";
 import YoutubeLink from "../components/youtubeLink/YoutubeLink.astro";
 import styles from "./index.module.scss";
 
-const cardsJsonGoogleDriveId = import.meta.env.GOOGLE_DRIVE_ID;
-const { bio, cards } = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
+const { bio, cards } = await getJson();
 ---
 
 <Layout title="Pink Sofa Hour" heading="Pink Sofa Hour" class={styles.main}>
@@ -21,30 +20,38 @@ const { bio, cards } = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
       allowfullscreen></iframe>
   </div>
 
-  <Card class={styles.info}>
-    <p>
-      {
-        // format <a> from text
-        bio?.map((e: any) => {
-          if (typeof e === "string") return e;
-          else if (typeof e.text === "string" && typeof e.href === "string")
-            return <a href={e.href}>{e.text}</a>;
-        })
-      }
-    </p>
-  </Card>
+  {
+    bio && (
+      <Card class={styles.info}>
+        <p>
+          {
+            // format <a> from text
+            bio?.map((e: any) => {
+              if (typeof e === "string") return e;
+              else if (typeof e.text === "string" && typeof e.href === "string")
+                return <a href={e.href}>{e.text}</a>;
+            })
+          }
+        </p>
+      </Card>
+    )
+  }
 
-  <div class={styles.grid}>
-    {
-      // TODO fix any type
-      cards?.map((card: any) => (
-        <Card>
-          <img src={`https://drive.google.com/uc?id=${card.photoId}`} />
-          <h2>{card.title}</h2>
-          {card.description && <p>{card.description}</p>}
-          <YoutubeLink href={card.videoUrl} />
-        </Card>
-      ))
-    }
-  </div>
+  {
+    cards && (
+      <div class={styles.grid}>
+        {
+          // TODO fix any type
+          cards.map((card: any) => (
+            <Card>
+              <img src={`https://drive.google.com/uc?id=${card.photoId}`} />
+              <h2>{card.title}</h2>
+              {card.description && <p>{card.description}</p>}
+              <YoutubeLink href={card.videoUrl} />
+            </Card>
+          ))
+        }
+      </div>
+    )
+  }
 </Layout>

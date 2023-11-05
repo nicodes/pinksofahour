@@ -23,6 +23,7 @@ const months = [
   "December",
 ];
 
+/** Parse string date into { date, day, month, time? } */
 export function getFormattedDate(dateInput?: string | null) {
   if (!dateInput) return;
 
