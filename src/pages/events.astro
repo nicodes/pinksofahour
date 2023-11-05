@@ -14,14 +14,7 @@ const dates = events?.map((e) =>
 );
 ---
 
-<Layout title="Pink Sofa Hour | Events" class={styles.main}>
-  <Card>
-    <h1
-      style="font-family: SignPainter-HouseBrush; letter-spacing: 0.5rem; text-align: center;"
-    >
-      Events
-    </h1>
-  </Card>
+<Layout title="PSH | Events" class={styles.main}>
   {
     events?.map((event, i) => (
       <Card class={styles.card}>
@@ -43,5 +36,3 @@ const dates = events?.map((e) =>
     ))
   }
 </Layout>
-
-<!-- <p>{event.description}</p> -->

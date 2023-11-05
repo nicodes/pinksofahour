@@ -1,3 +1,39 @@
-.img {
+$border-height: 2px;
+
+.header {
+  height: 64px;
+  padding: var(--thin) var(--thick) calc(var(--thin) - $border-height)
+    var(--thick); // subtract border height from padding
+  border-bottom: $border-height solid var(--white);
+
+  background-image: url("../assets/headerBackground.png");
+  background-position: center;
+  background-size: cover;
+
+  img {
+    height: 100%;
+    width: min-content;
+  }
+
+  a {
+    color: var(--white);
+  }
+}
+
+.widthContainer {
+  height: 100%;
+  max-width: var(--content-max-width);
+  display: flex;
   margin: auto;
+
+  & > :first-child,
+  & > :last-child {
+    flex: 1;
+  }
+
+  & > :last-child {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
 }

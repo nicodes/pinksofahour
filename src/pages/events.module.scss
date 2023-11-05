@@ -1,22 +1,11 @@
 .main {
   > * {
+    // overwrite max-width to be thinner
     max-width: 600px;
   }
 
-  h1 {
-    position: relative;
-    display: block;
-    margin: auto;
-
-    text-align: center;
-    font-size: 40px;
-    color: #d023a4;
-    text-shadow: 2px 2px 2px #fffbcc;
-    // text-shadow: 2px 2px 4px #fffbcc, 4px 4px 2px #022366; /* experimenting with double shadows for readibility */
-  }
-
   h2 {
-    font-size: 30px;
+    font-size: 36px;
   }
 
   a {

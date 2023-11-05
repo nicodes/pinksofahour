@@ -1,6 +1,9 @@
 ---
 import Header from "./Header.astro";
+import Card from "../components/card/Card.astro";
+
 import styles from "./layout.module.scss";
+
 import "../styles/index.css";
 
 interface Props {
@@ -23,6 +26,13 @@ const { title, class: className } = Astro.props;
   <body>
     <Header />
     <main class={`${styles.main} ${className}`}>
+      <Card>
+        <h1
+          style="font-family: SignPainter-HouseBrush; letter-spacing: 0.5rem; text-align: center;"
+        >
+          {title}
+        </h1>
+      </Card>
       <slot />
     </main>
   </body>

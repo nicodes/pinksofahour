@@ -1,14 +1,4 @@
 .main {
-  height: 100%;
-
-  h1 {
-    font-size: 40px;
-    color: #d023a4;
-    text-shadow: 2px 2px 2px #fffbcc;
-    // text-shadow: 2px 2px 4px #fffbcc, 4px 4px 2px #022366; /* experimenting with double shadows for readibility */
-    position: relative;
-  }
-
   a {
     color: var(--white);
   }
@@ -29,33 +19,7 @@
   }
 }
 
-.intro h1 {
-  text-align: center;
-  letter-spacing: 0.2rem;
-}
-
-.gridHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  /* border: red 5px solid; */
-
-  h4 {
-    color: #fcb8d1;
-  }
-
-  select {
-    font-family: NeutraText-bold;
-    font-size: 20px;
-    border: none;
-    border-bottom: 3px solid #fcb8d1;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: white;
-  }
-}
-
-.episodeGrid {
+.grid {
   width: 100%; /* fixes auto-shrinking bug */
   display: grid;
   grid-template-columns: repeat(
@@ -65,19 +29,18 @@
   grid-gap: var(--thin);
   column-gap: var(--thin);
 
+  // grid card
   section {
-    max-width: 600px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: var(--thin);
 
     img {
-      max-width: 100%;
-      height: auto;
       border: #fffbcc 10px solid;
       border-radius: 2px;
     }
 
+    // youtube link
     a {
       display: flex;
       align-items: center;

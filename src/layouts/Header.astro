@@ -1,87 +1,22 @@
 ---
 import { Image } from "astro:assets";
-import localBirdImage from "../assets/pshLogo.png";
+
 import styles from "./header.module.scss";
+import localBirdImage from "../assets/pshLogo.png";
 ---
 
-<header>
-  <!-- <img class="menu" src="../../menu-icon.png" alt="menu icon" /> -->
-  <Image src={localBirdImage} alt="pink sofa hour logo" class={styles.img} />
-  <!-- <p>test</p> -->
-  <!-- <div class="menu-links">
-    <a>Episodes</a>
-    <a>Gallery</a>
-    <a>Shop</a>
-    <a>About</a>
-  </div> -->
-
-  <!-- <div class="menu-drawer">
-    <p>Close</p>
+<header class={styles.header}>
+  <div class={styles.widthContainer}>
+    <div></div>
+    <a href="/">
+      <Image
+        src={localBirdImage}
+        alt="pink sofa hour logo"
+        class={styles.img}
+      />
+    </a>
     <div>
-      <a>Home</a>
-      <a>Episodes</a>
-      <a>Gallery</a>
-      <a>Shop</a>
-      <a>About</a>
-      <div>Icons</div>
+      <a href="events">Events</a>
     </div>
-  </div> -->
+  </div>
 </header>
-
-<style>
-  header {
-    padding: var(--thin) var(--thick);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-image: url("../assets/headerBackground.png");
-    background-position: center;
-    background-size: cover;
-    border-bottom: 2px solid white;
-  }
-
-  .menu {
-    height: 30px;
-  }
-
-  .logo {
-    height: 60px;
-    margin: 0 auto;
-  }
-
-  .menu-links {
-    display: none;
-  }
-
-  .menu-drawer {
-    display: none;
-    /* display: grid; */
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    padding: 40px;
-    height: 100%;
-    width: 100%;
-
-    background-color: #fffbcc;
-  }
-
-  .menu-drawer h2 {
-    color: #002366;
-  }
-
-  /* @media only screen and (min-width: 600px) {
-
-    .menu {
-      display: none;
-    }
-
-    .menu-links {
-      display: flex;
-      column-gap: var(--thin);
-    }
-
-  } */
-</style>

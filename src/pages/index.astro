@@ -10,14 +10,6 @@ const { bio, cards } = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
 ---
 
 <Layout title="Pink Sofa Hour" class={styles.main}>
-  <Card>
-    <h1
-      style="font-family: SignPainter-HouseBrush; letter-spacing: 0.5rem; text-align: center;"
-    >
-      Pink Sofa Hour
-    </h1>
-  </Card>
-
   <div class={styles.introVideo}>
     <iframe
       width="560"
@@ -29,9 +21,10 @@ const { bio, cards } = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
       allowfullscreen></iframe>
   </div>
 
-  <Card>
+  <Card class={styles.info}>
     <p>
       {
+        // format <a> from text
         bio?.map((e: any) => {
           if (typeof e === "string") return e;
           else if (typeof e.text === "string" && typeof e.href === "string")
@@ -41,7 +34,7 @@ const { bio, cards } = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
     </p>
   </Card>
 
-  <div class={styles.episodeGrid}>
+  <div class={styles.grid}>
     {
       // TODO fix any type
       cards?.map((card: any) => (
