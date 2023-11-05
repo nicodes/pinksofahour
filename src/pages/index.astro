@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/card/Card.astro";
 import { readJsonFileFromDrive } from "../services/youtube";
-import YoutubeButton from "../components/youtubeButton/YoutubeButton.astro";
+import YoutubeLink from "../components/youtubeLink/YoutubeLink.astro";
 import styles from "./index.module.scss";
 
 const cardsJsonGoogleDriveId = import.meta.env.GOOGLE_DRIVE_ID;
@@ -42,10 +42,7 @@ const { bio, cards } = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
           <img src={`https://drive.google.com/uc?id=${card.photoId}`} />
           <h2>{card.title}</h2>
           {card.description && <p>{card.description}</p>}
-          <a target="_blank" href={card.videoUrl}>
-            <YoutubeButton />
-            <p>Watch on Youtube</p>
-          </a>
+          <YoutubeLink href={card.videoUrl} />
         </Card>
       ))
     }

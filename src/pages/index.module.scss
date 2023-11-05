@@ -35,26 +35,9 @@
     flex-direction: column;
     gap: var(--thin);
 
-    img {
+    > img:first-child {
       border: #fffbcc 10px solid;
       border-radius: 2px;
-    }
-
-    // youtube link
-    a {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      margin-top: auto;
-
-      p {
-        margin-left: var(--thin);
-
-        &:hover {
-          text-decoration: underline;
-          text-decoration-color: red;
-        }
-      }
     }
   }
 }

@@ -2,18 +2,14 @@
 import { Image } from "astro:assets";
 
 import styles from "./header.module.scss";
-import localBirdImage from "../assets/pshLogo.png";
+import pshLogo from "../assets/pshLogo.png";
 ---
 
 <header class={styles.header}>
   <div class={styles.widthContainer}>
     <div></div>
     <a href="/">
-      <Image
-        src={localBirdImage}
-        alt="pink sofa hour logo"
-        class={styles.img}
-      />
+      <Image src={pshLogo} alt="pink sofa hour logo" class={styles.img} />
     </a>
     <div>
       <a href="events">Events</a>
