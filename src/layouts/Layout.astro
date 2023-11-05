@@ -3,15 +3,15 @@ import Header from "./Header.astro";
 import Card from "../components/card/Card.astro";
 
 import styles from "./layout.module.scss";
-
 import "../styles/index.css";
 
 interface Props {
   title: string;
+  heading?: string;
   class?: string;
 }
 
-const { title, class: className } = Astro.props;
+const { title, heading, class: className } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -26,13 +26,13 @@ const { title, class: className } = Astro.props;
   <body>
     <Header />
     <main class={`${styles.main} ${className}`}>
-      <Card>
-        <h1
-          style="font-family: SignPainter-HouseBrush; letter-spacing: 0.5rem; text-align: center;"
-        >
-          {title}
-        </h1>
-      </Card>
+      {
+        heading && (
+          <Card>
+            <h1>{heading}</h1>
+          </Card>
+        )
+      }
       <slot />
     </main>
   </body>

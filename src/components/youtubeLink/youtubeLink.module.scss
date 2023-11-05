@@ -1,6 +1,7 @@
 .container {
   width: min-content; // needed so link doesn't span 100% width
   text-decoration: none;
+
   display: flex;
   gap: var(--thin);
   align-items: center;

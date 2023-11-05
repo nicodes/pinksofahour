@@ -9,15 +9,6 @@ $border-height: 2px;
   background-image: url("../assets/headerBackground.png");
   background-position: center;
   background-size: cover;
-
-  img {
-    height: 100%;
-    width: min-content;
-  }
-
-  a {
-    color: var(--white);
-  }
 }
 
 .widthContainer {
@@ -35,5 +26,14 @@ $border-height: 2px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+  }
+
+  img {
+    height: 100%;
+    width: min-content;
+  }
+
+  a {
+    color: var(--white);
   }
 }
