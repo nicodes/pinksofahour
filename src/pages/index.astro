@@ -6,7 +6,7 @@ import ArtistCard from "../components/artistCard/ArtistCard.astro";
 import styles from "./index.module.scss";
 
 const cardsJsonGoogleDriveId = import.meta.env.GOOGLE_DRIVE_ID;
-console.log("drive id: ", cardsJsonGoogleDriveId);
+// console.log("drive id: ", cardsJsonGoogleDriveId);
 const { bio, cards } = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
 ---
 
