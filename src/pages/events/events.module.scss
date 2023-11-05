@@ -1,7 +1,7 @@
 .main {
   > * {
     // overwrite max-width to be thinner
-    max-width: 600px;
+    max-width: 600px !important;
   }
 
   h2 {
