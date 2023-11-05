@@ -12,7 +12,7 @@ export async function getEvents() {
     timeMin: new Date().toISOString(),
     singleEvents: true,
     orderBy: "startTime",
-    maxResults: 10,
+    maxResults: 20,
   });
 
   return response.data.items;
