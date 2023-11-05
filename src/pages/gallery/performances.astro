@@ -4,7 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import {
   getRecentFromChannel,
   getVideosFromPlaylist,
-} from "../../services/dataService";
+} from "../../services/youtube";
 
 const playlistVideos = await getVideosFromPlaylist("performances", 5);
 console.log(playlistVideos);
@@ -34,4 +34,4 @@ console.log(playlistVideos);
   </main>
 </Layout>
 
-<style></style>
+<style></style>../../services/youtubeService ../../services/youtube

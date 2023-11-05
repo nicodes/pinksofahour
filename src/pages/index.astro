@@ -1,12 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/card/Card.astro";
-import { readJsonFileFromDrive } from "../services/dataService";
+import { readJsonFileFromDrive } from "../services/youtube";
 import ArtistCard from "../components/artistCard/ArtistCard.astro";
 import styles from "./index.module.scss";
 
 const cardsJsonGoogleDriveId = import.meta.env.GOOGLE_DRIVE_ID;
-// console.log("drive id: ", cardsJsonGoogleDriveId);
 const { bio, cards } = await readJsonFileFromDrive(cardsJsonGoogleDriveId);
 ---
 

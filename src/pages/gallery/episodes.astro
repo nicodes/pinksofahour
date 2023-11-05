@@ -2,7 +2,7 @@
 import Card from "../../components/card/Card.astro";
 import Tabs from "../../components/tabs/Tabs.astro";
 import Layout from "../../layouts/Layout.astro";
-import { getVideosFromPlaylist } from "../../services/dataService";
+import { getVideosFromPlaylist } from "../../services/youtube";
 
 const episodes = await getVideosFromPlaylist("episodes", 20);
 ---
