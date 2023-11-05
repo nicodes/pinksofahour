@@ -11,6 +11,8 @@ const calendar = google.calendar({
   version: "v3",
   auth: import.meta.env.GOOGLE_API_KEY,
 });
+console.log("calendar: ", calendar);
+
 let events;
 
 try {
@@ -20,7 +22,6 @@ try {
     singleEvents: true,
     orderBy: "startTime",
   });
-
   console.log("calendar response: ", response);
 
   events = response.data.items;
