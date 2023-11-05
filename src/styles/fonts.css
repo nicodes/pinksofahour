@@ -1,19 +1,19 @@
 @font-face {
-    font-family: "NeutraText-Bold";
-    src: url("/fonts/NeutraText-Bold.otf") format("opentype");
-  }
-  
-  @font-face {
-    font-family: "NeutraText-Book";
-    src: url("/fonts/NeutraText-Book.otf") format("opentype");
-  }
-  
-  @font-face {
-    font-family: "PlincSuperstar";
-    src: url("/fonts/PlincSuperstar.otf") format("opentype");
-  }
-  
-  @font-face {
-    font-family: "SignPainter-HouseBrush";
-    src: url("/fonts/SignPainter-HouseBrush.otf") format("opentype");
-  }
+  font-family: "NeutraText-Bold";
+  src: url("/fonts/NeutraText-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "NeutraText-Book";
+  src: url("/fonts/NeutraText-Book.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "PlincSuperstar";
+  src: url("/fonts/PlincSuperstar.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "SignPainter-HouseBrush";
+  src: url("/fonts/SignPainter-HouseBrush.otf") format("opentype");
+}
