@@ -4,6 +4,9 @@ import { google } from "googleapis";
 import styles from "./events.module.scss";
 import Card from "../components/card/Card.astro";
 
+console.log("google api key: ", import.meta.env.GOOGLE_API_KEY);
+console.log("google calendar id: ", import.meta.env.GOOGLE_CALENDAR_ID);
+
 const calendar = google.calendar({
   version: "v3",
   auth: import.meta.env.GOOGLE_API_KEY,
@@ -28,22 +31,23 @@ try {
   <main class={styles.main}>
     <h1>Events</h1>
     <ul class={styles.eventsList}>
-      {events?.map((event, i) => (
-        <Card>
-          <div class={styles.eventsListing}>
-            <div class={styles.dateContainer}>
-              <h2>28</h2>
-              <h3>MONTH</h3>
-              <div></div>
+      {
+        events?.map((event, i) => (
+          <Card>
+            <div class={styles.eventsListing}>
+              <div class={styles.dateContainer}>
+                <h2>28</h2>
+                <h3>MONTH</h3>
+                <div />
+              </div>
+              <div class={styles.detailsContainer}>
+                <h2>{event.summary}</h2>
+                <p>Date and time</p>
+                <p>city, co</p>
+              </div>
             </div>
-            <div class={styles.detailsContainer}>
-              <h2>{event.summary}</h2>
-              <p>Date and time</p>
-              <p>city, co</p>
-            </div>
-          </div>
-        </Card>
-      ))
+          </Card>
+        ))
       }
       {
         events?.map((event, i) => (
