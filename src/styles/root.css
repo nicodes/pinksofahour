@@ -1,29 +1,32 @@
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-  }
-  
-  html,
-  body {
-    height: 100%;
-  }
-  
-  body {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  h1,
-  h2,
-  h3,
-  h4,
-  p,
-  a {
-    margin: 0;
-    font-size: 24px;
-    font-family: NeutraText-Book;
-    line-height: 1.4;
-    color: var(--white);
-  }
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a {
+  margin: 0;
+  font-size: 18px;
+  font-family: NeutraText-Book;
+  color: var(--white);
+}
+
+p {
+  line-height: 1.6;
+}
