@@ -26,11 +26,11 @@ export async function sendEmail({
     const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
     sendSmtpEmail.sender = {
       name: "Pink Sofa Hour",
-      email: import.meta.env.CONTACT_SENDER_EMAIL,
+      email: import.meta.env.BREVO_SENDER_EMAIL,
     };
     sendSmtpEmail.to = [
       {
-        email: import.meta.env.CONTACT_RECIPIENT_EMAIL,
+        email: import.meta.env.BREVO_RECIPIENT_EMAIL,
         name: "Pink Sofa Hour",
       },
     ];
