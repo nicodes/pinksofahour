@@ -1,19 +1,21 @@
 :root {
   --pink: #fcb8d1;
+  --dark-pink: #d023a4;
   --yellow: #fffbcc;
   --white: white;
+  --black: black;
 
   --content-max-width: 1200px;
-  --artist-card-min-size: 300px;
+  --border-radius: 2px;
 
   --fine: 8px;
   --thin: 12px;
   --thick: 24px;
 
-  --font-size-lg: 40px;
-  --font-size-md: 32px;
-  --font-size-sm: 24px;
-  --font-size-xs: 16px;
+  --font-size-lg: 2rem;
+  --font-size-md: 1.6rem;
+  --font-size-sm: 1.2rem;
+  --font-size-xs: 0.8rem;
 }
 
 /* @media screen and (min-width: 768px) {

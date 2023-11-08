@@ -12,3 +12,9 @@
     height: 100%;
   }
 }
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  gap: var(--thin);
+}

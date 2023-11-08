@@ -18,26 +18,62 @@ $border-height: 2px;
 
   display: flex;
   align-items: center;
-  gap: var(--thin);
+  gap: var(--thick);
 
-  a {
-    height: 100%;
-    color: var(--white);
-
-    display: flex;
-    align-items: center;
-
-    &:not(:first-child) img {
-      height: 60%;
+  // logo
+  & > :first-child {
+    img {
+      height: 100%;
+      width: auto;
     }
   }
 
-  img {
+  // logo and hamburger
+  & > :first-child, & > :nth-child(2) {
     height: 100%;
-    width: auto;
+  }
+
+  // hamburger
+  & > :nth-child(2) {
+    margin-left: auto;
+    // needs z index for menu to float above youtube video
+    z-index: 1;
+  }
+
+  // desktop icons
+  & > :not(:first-child):not(:nth-child(2)) {
+    display: none;
   }
 }
 
-.right {
-  margin-left: auto;
+@media screen and (min-width: 768px) {
+  .widthContainer {
+    // hamburger
+    :nth-child(2) {
+      display: none;
+    }
+
+    // desktop icons
+    :not(:first-child):not(:nth-child(2)) {
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      // underline text anchors on hover
+      &:not(:hover) {
+        text-decoration: none;
+      }
+    
+      // youtube icon
+      &:nth-child(5) {
+        margin-left: auto;
+      }
+
+      // smaller height for social icons
+      img {
+        height: 60%;
+        width: auto;
+      }
+    }
+  }
 }
