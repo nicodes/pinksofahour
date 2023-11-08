@@ -29,7 +29,8 @@ $border-height: 2px;
   }
 
   // logo and hamburger
-  & > :first-child, & > :nth-child(2) {
+  & > :first-child,
+  & > :nth-child(2) {
     height: 100%;
   }
 
@@ -63,7 +64,7 @@ $border-height: 2px;
       &:not(:hover) {
         text-decoration: none;
       }
-    
+
       // youtube icon
       &:nth-child(5) {
         margin-left: auto;

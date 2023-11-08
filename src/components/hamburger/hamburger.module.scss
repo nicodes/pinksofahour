@@ -1,45 +1,45 @@
 .clickCatcher {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
 }
 
 .container {
-    position: relative;
-    height: 100%;
+  position: relative;
+  height: 100%;
 }
 
 .button {
-    height: 100%;
-    background-color: transparent;
-    padding: 0;
-    margin: 0;
-    border: none;
+  height: 100%;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
 
-    img {
-        height: 100%;
-    }
+  img {
+    height: 100%;
+  }
 }
 
 .menu {
-    position: absolute;
-    right: 0; /* Align the right edge of the child with the right of the container */
-    height: min-content;
-    padding: var(--thin);
-    border-radius: var(--border-radius);
-    background-color: var(--white);
+  position: absolute;
+  right: 0; /* Align the right edge of the child with the right of the container */
+  height: min-content;
+  padding: var(--thin);
+  border-radius: var(--border-radius);
+  background-color: var(--white);
 
-    display: flex;
-    flex-direction: column;
-    gap: var(--fine);
+  display: flex;
+  flex-direction: column;
+  gap: var(--fine);
 
-    a {
-        color: var(--black);
+  a {
+    color: var(--black);
 
-        &:not(:hover) {
-            text-decoration: none;     
-        }
+    &:not(:hover) {
+      text-decoration: none;
     }
+  }
 }
