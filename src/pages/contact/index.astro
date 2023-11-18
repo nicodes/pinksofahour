@@ -19,12 +19,14 @@ if (Astro.request.method === "POST") {
     howDidYourHear,
     favoriteThing,
   });
+
+  return new Response("<p>Thanks for reaching out!</p>");
 }
 ---
 
 <Layout title="PSH | Contact" heading="Contact" class={styles.main}>
   <Card class={styles.card}>
-    <form method="POST">
+    <form novalidate hx-post="/contact" hx-swap="beforeend">
       <label>
         <span>Name:</span>
         <input type="text" name="name" required />
