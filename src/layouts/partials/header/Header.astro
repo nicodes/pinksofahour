@@ -1,10 +1,11 @@
 ---
 import { Image } from "astro:assets";
+import Hamburger from "../../../components/hamburger/Hamburger.svelte";
 
-import styles from "./header.module.scss";
 import pshLogo from "../../../assets/pshLogo.png";
 import youtubeSvg from "../../../assets/youtube.svg";
 import instagramSvg from "../../../assets/instagram.svg";
+import styles from "./header.module.scss";
 ---
 
 <header transition:persist class={styles.header}>
@@ -12,18 +13,14 @@ import instagramSvg from "../../../assets/instagram.svg";
     <a href="/">
       <Image src={pshLogo} alt="pink sofa hour logo" class={styles.img} />
     </a>
-    <div>
-      <a href="events">Events</a>
-    </div>
-    <!-- <div>
-      <a href="contact">Contact</a>
-    </div> -->
 
-    <a
-      class={styles.right}
-      target="_blank"
-      href="https://www.youtube.com/@pinksofahour"
-    >
+    <div class={styles.hamburger}>
+      <Hamburger client:visible class={styles.mobile} />
+    </div>
+
+    <a href="events">Events</a>
+    <a href="contact">Contact</a>
+    <a target="_blank" href="https://www.youtube.com/@pinksofahour">
       <Image src={youtubeSvg} alt="youtube link" />
     </a>
     <a target="_blank" href="https://www.instagram.com/pinksofahour">

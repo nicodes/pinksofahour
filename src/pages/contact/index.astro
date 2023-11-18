@@ -1,31 +1,51 @@
 ---
+import { sendEmail } from "../../services/brevo";
 import Layout from "../../layouts/Layout.astro";
 import Card from "../../components/card/Card.astro";
 import styles from "./contact.module.scss";
+
+if (Astro.request.method === "POST") {
+  const formData = await Astro.request.formData();
+  const name = String(formData.get("name"));
+  const previousInterviews = String(formData.get("previous-interviews"));
+  const additionalLinks = String(formData.get("additional-links"));
+  const howDidYourHear = String(formData.get("how-did-you-hear"));
+  const favoriteThing = String(formData.get("favorite-thing"));
+
+  sendEmail({
+    name,
+    previousInterviews,
+    additionalLinks,
+    howDidYourHear,
+    favoriteThing,
+  });
+
+  return new Response("<p>Thanks for reaching out!</p>");
+}
 ---
 
 <Layout title="PSH | Contact" heading="Contact" class={styles.main}>
   <Card class={styles.card}>
-    <form method="POST">
+    <form novalidate hx-post="/contact" hx-swap="beforeend">
       <label>
         <span>Name:</span>
         <input type="text" name="name" required />
       </label>
 
       <label>
-        <span>Any Previous Interviews:</span>
-        <textarea name="previous-interviews"> </textarea>
+        <span>Any previous interviews:</span>
+        <textarea name="previous-interviews"></textarea>
       </label>
 
       <label for="additional-links-input">
-        <span>Additional Links:</span>
-        <textarea id="additional-links-input" name="additional-links">
-        </textarea>
+        <span>Additional links:</span>
+        <textarea id="additional-links-input" name="additional-links"
+        ></textarea>
       </label>
 
       <label>
         <span>How did you hear about PSH?</span>
-        <textarea name="how-did-you-hear"> </textarea>
+        <textarea name="how-did-you-hear"></textarea>
       </label>
 
       <label>
