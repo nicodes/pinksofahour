@@ -22,39 +22,22 @@ const months = [
   "November",
   "December",
 ];
+/** Format date into 12 hour format */
+export function formatTime(date: Date): string {
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const ampm = hours >= 12 ? "PM" : "AM";
+
+  const formattedHours = hours % 12 || 12; // the hour '0' should be '12'
+  const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+
+  return `${formattedHours}:${formattedMinutes} ${ampm}`;
+}
 
 /** Parse string date into { date, day, month, time? } */
-export function getFormattedDate(dateInput?: string | null) {
-  if (!dateInput) return;
-
-  // Parse the input date
-  const dateObj = new Date(dateInput);
-
-  // Check if the date is invalid
-  if (isNaN(dateObj.getTime())) throw new Error("Invalid date input");
-
-  // Get the day, date, and month
-  const day: string = days[dateObj.getDay()];
-  const date: string = dateObj.getDate().toString();
-  const month: string = months[dateObj.getMonth()];
-
-  // Initialize the return object
-  const dateInfo: { day: string; date: string; month: string; time?: string } =
-    { day, date, month };
-
-  // Check if the time was provided by comparing the length of the dateInput string.
-  // This is a simple check and may not cover all edge cases.
-  // A more robust solution would involve regex or date-time library.
-  if (dateInput.includes("T") || dateInput.includes(" ")) {
-    // Get hours and minutes, pad with zero if necessary
-    const hours = dateObj.getHours().toString().padStart(2, "0");
-    const minutes = dateObj.getMinutes().toString().padStart(2, "0");
-    // Optionally, include seconds or further precision depending on your requirements
-    // const seconds = dateObj.getSeconds().toString().padStart(2, '0');
-
-    // Append time to the dateInfo object
-    dateInfo.time = `${hours}:${minutes}`; // Include seconds if needed: `:${seconds}`
-  }
-
-  return dateInfo;
-}
+export const getDateLabel = (dateInput: Date) => ({
+  day: days[dateInput.getDay()],
+  date: dateInput.getDate().toString(),
+  month: months[dateInput.getMonth()],
+  time: formatTime(dateInput),
+});
