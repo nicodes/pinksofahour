@@ -3,6 +3,7 @@ import { ViewTransitions } from "astro:transitions";
 
 import Header from "./partials/header/Header.astro";
 import Card from "../components/card/Card.astro";
+import Banner from "../components/banner/Banner.astro";
 
 import styles from "./layout.module.scss";
 import "../styles/index.css";
@@ -16,7 +17,7 @@ interface Props {
 const { title, heading, class: className } = Astro.props;
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -28,6 +29,7 @@ const { title, heading, class: className } = Astro.props;
   </head>
   <body>
     <Header />
+    <Banner />
     <main class={`${styles.main} ${className}`}>
       {
         heading && (
@@ -42,6 +44,7 @@ const { title, heading, class: className } = Astro.props;
     <script
       src="https://unpkg.com/htmx.org@1.9.8"
       integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
