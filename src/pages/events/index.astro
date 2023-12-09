@@ -1,6 +1,6 @@
 ---
 import { getEvents } from "../../services/googleCalendar";
-import { getFormattedDate } from "../../services/date";
+import { getDateLabel } from "../../services/date";
 
 import Layout from "../../layouts/Layout.astro";
 import Card from "../../components/card/Card.astro";
@@ -9,30 +9,39 @@ import styles from "./events.module.scss";
 
 const events = await getEvents();
 
-const dates = events?.map((e) =>
-  getFormattedDate(e.start?.dateTime || e.start?.date)
-);
+const dateLabels = events?.map((e) => {
+  const date = new Date(`${e.start?.dateTime || e.start?.date}`)
+
+  // found a bug in the astro compiler should be able to use: `if (date) return getFormattedDate(date)`
+  if (!date) return
+  else return getDateLabel(date)
+});
 ---
 
 <Layout title="PSH | Events" heading="Events" class={styles.main}>
   {
-    events?.map((event, i) => (
-      <Card class={styles.card}>
-        <div>
-          <p>{dates?.[i]?.day}</p>
-          <Circle>
-            <p class={styles.circleText}>{dates?.[i]?.date}</p>
-          </Circle>
-          <p>{dates?.[i]?.month}</p>
-        </div>
-        <div>
-          <h2>{event.summary}</h2>
-          <p>{event.location}</p>
-          <a href={event.htmlLink}>
-            <p>Details</p>
-          </a>
-        </div>
-      </Card>
-    ))
+    events?.map((event, i) => {
+      const dateLabel = dateLabels?.[i];
+      return (
+        <Card class={styles.card}>
+          <div>
+            <p>{dateLabel?.day}</p>
+            <Circle>
+              <p class={styles.circleText}>{dateLabel?.date}</p>
+            </Circle>
+            <p>{dateLabel?.month}</p>
+          </div>
+          <div>
+            <h2>{event.summary}</h2>
+            <p>
+              {dateLabel?.time}
+              <span class={styles.dotDivider}>●</span>
+              <a href={event.htmlLink}>Details</a>
+            </p>
+            <p>{event.location}</p>
+          </div>
+        </Card>
+      )
+    })
   }
 </Layout>
